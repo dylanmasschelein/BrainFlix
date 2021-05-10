@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.header {
+  display: flex;
+  flex-flow: column wrap;
+  height: 10.562rem;
+  margin: 0 1rem;
+}
+.header__logo {
+  height: 1.75rem;
+  margin: 0.625rem 0;
+}
+.header__input {
+  height: 3rem;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0 1rem 0;
+}
+.header__upload {
+  width: 100%;
+  height: 3rem;
+  margin-right: 1rem;
+  background: #0095ff;
+  border-radius: 0.25rem;
+  color: #ffffff;
+}
+.header__upload:hover {
+  background: #002f5f;
+}
+.header__avatar, .comment__avatar {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.video__player {
+  height: 11.437;
+  width: 100%;
+}
+.video__container {
+  margin: 0 1rem;
+  display: flex;
+  flex-flow: column wrap;
+}
+.video__title {
+  margin: 2rem 0 1rem 0;
+}
+.video__user-container {
+  display: flex;
+  align-items: baseline;
+}
+.video__user {
+  margin: 0;
+  padding: 0;
+  margin-right: 0.5rem;
+}
+.video__date {
+  color: #afafaf;
+}
+.video__info-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-bottom: #e1e1e1 solid 1px;
+}
+.video__views {
+  margin-right: 1rem;
+}
+.video__icon {
+  margin-right: 0.5rem;
+}
+.comment {
+  margin: 0 1rem;
+}
+.comment__count {
+  margin: 2.5rem 0 2rem 0;
+}
+.comment__container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: #e1e1e1 solid 1px;
+}
+.comment__avatar {
+  margin-right: 1rem;
+}
+.comment__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.comment__label {
+  color: #afafaf;
+  margin-bottom: 0.25rem;
+}
+.comment__input {
+  height: 2.25rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  background: #fafafa;
+  border: #e1e1e1 solid 1px;
+}
+.comment__submit {
+  width: 100%;
+  height: 3rem;
+  margin-right: 1rem;
+  background: #0095ff;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  margin: 1rem 0 1.5rem;
+}
+.comment__submit:hover {
+  background: #002f5f;
+}/*# sourceMappingURL=main.css.map */

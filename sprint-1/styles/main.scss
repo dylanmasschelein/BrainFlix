@@ -1,0 +1,174 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+//reset all heading spacing
+
+.header {
+  display: flex;
+  flex-flow: column wrap;
+  height: 10.562rem;
+  margin: 0 1rem;
+
+  &__logo {
+    height: 1.75rem;
+    margin: 0.625rem 0;
+  }
+
+  &__input {
+    height: 3rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  &__upload {
+    @include cta-button;
+
+    &:hover {
+      background: $primary-cta-hover;
+    }
+  }
+
+  &__avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+  }
+}
+
+.video {
+  &__player {
+    height: 11.437;
+    width: 100%;
+  }
+
+  &__container {
+    margin: 0 1rem;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  &__title {
+    margin: 2rem 0 1rem 0;
+  }
+
+  &__user-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__user {
+    margin: 0;
+    padding: 0;
+    margin-right: 0.5rem;
+  }
+
+  &__date {
+    color: $color-silver;
+  }
+
+  &__info-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+    border-bottom: $divider-border;
+  }
+
+  &__views {
+    margin-right: 1rem;
+  }
+
+  &__likes {
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+  }
+
+  &__description {
+    //remove and add margin to comment section
+    //might not need this selector at all if i change p size and color
+  }
+}
+
+.comment {
+  margin: 0 1rem;
+
+  &__count {
+    margin: 2.5rem 0 2rem 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    border-bottom: $divider-border;
+  }
+
+  &__avatar {
+    @extend .header__avatar;
+    margin-right: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__label {
+    color: $color-silver;
+    margin-bottom: 0.25rem;
+  }
+
+  &__input {
+    height: 2.25rem;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    background: $color-alabaster;
+    border: $divider-border;
+  }
+
+  &__submit {
+    @include cta-button;
+    margin: 1rem 0 1.5rem;
+
+    &:hover {
+      background: $primary-cta-hover;
+    }
+  }
+
+  &__section {
+  }
+}

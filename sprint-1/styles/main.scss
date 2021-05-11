@@ -1,329 +1,50 @@
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
-@use '../styles/partials/global';
 @use '../styles/partials/typography';
 @use './partials/header';
+@use './partials/hero';
+@use './partials/video';
+@use './partials/comment';
+@use './partials/comment-card';
+@use './partials/recommendation';
+@use './partials/recommendation-card';
+@use './partials/mixins';
+@use './partials/variables';
 
-.video {
-  &__player {
-    height: 11.437;
-    width: 100%;
-
-    @include desktop {
-      width: 59rem;
-    }
-  }
-
-  &__wrapper {
-    margin: 0 1rem;
-    display: flex;
-    flex-flow: column wrap;
-
-    @include tablet {
-      margin: 0 1.5rem;
-    }
-
-    @include desktop {
-      // width: 1080px;
-      // margin: 0 auto;
-    }
-  }
-
-  &__title {
-    margin: 2rem 0 1rem 0;
-
-    @include tablet {
-      margin: 3rem 0 1.5rem 0;
-    }
-  }
-
-  &__container {
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 1.5rem;
-      border-bottom: $divider-border;
-      margin-bottom: 2.5rem;
-    }
-  }
-
-  &__user-container {
-    display: flex;
-    align-items: baseline;
-  }
-
-  &__user {
-    margin: 0;
-    padding: 0;
-    margin-right: 0.5rem;
-
-    @include tablet {
-      margin-right: 1rem;
-    }
-  }
-
-  &__date {
-    color: $color-silver;
-  }
-
-  &__info-container {
-    display: flex;
-    align-items: center;
-    padding-bottom: 1.5rem;
-    margin: 2rem 0 1.5rem 0;
-    border-bottom: $divider-border;
-
-    @include tablet {
-      margin: 0;
-      border-bottom: none;
-      padding: 0;
-    }
-  }
-
-  &__info {
-    margin-right: 1rem;
-    color: $color-black;
-
-    @include tablet {
-      margin: 0 0 0 1.5rem;
-    }
-  }
-
-  &__icon {
-    margin-right: 0.5rem;
-  }
-
-  &__description {
-    @include tablet {
-      width: 70%;
-    }
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.comment {
-  margin: 0 1rem;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
-  @include tablet {
-    margin: 0 1.5rem;
-  }
+a {
+  text-decoration: none;
+}
 
+main {
   @include desktop {
-    // width: 1080px;
-    // margin: 0 auto;
-  }
-
-  &__count {
-    margin: 2.5rem 0 2rem 0;
-
-    @include tablet {
-      margin: 4rem 0 2rem 0;
-    }
-  }
-
-  &__wrapper {
     display: flex;
-    flex-direction: row;
-    border-bottom: $divider-border;
+    justify-content: space-between;
 
-    @include tablet {
-      padding-bottom: 1.5rem;
-    }
-
-    @include desktop {
-      width: 40%;
-    }
-  }
-
-  &__avatar {
-    @extend .header__avatar;
-    margin-right: 1rem;
-
-    @include tablet {
-      align-self: flex-end;
-    }
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    @include tablet {
-      flex-direction: row;
-    }
-
-    @include desktop {
-      width: unset;
-    }
-  }
-
-  &__container {
-    @include tablet {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-  }
-
-  &__label {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: bold;
-    color: $color-silver;
-    margin-bottom: 0.25rem;
-  }
-
-  &__input {
-    font-family: "AvenirNext LT Pro";
-    height: 6rem;
-    border-radius: $border-radius;
-    padding: 1rem;
-    background: $color-alabaster;
-    border: $color-mercury solid 2px;
-    resize: none;
-
-    &::placeholder {
-      color: $color-black;
-    }
-
-    &:focus {
-      border: $primary-cta solid 2px;
-    }
-
-    @include tablet {
-      height: 3rem;
-      width: 100%;
-    }
-  }
-
-  &__submit {
-    @include cta-button;
-    margin: 1rem 0 1.5rem;
-
-    &:hover {
-      background: $primary-cta-hover;
-    }
-
-    @include tablet {
-      align-self: flex-end;
-      width: 16rem;
-      margin: 0 2.5rem 0 1rem;
-    }
-  }
-}
-
-.comment-card {
-  display: flex;
-  border-bottom: $divider-border;
-  padding: 1.5rem 0;
-  margin: 0 1rem;
-
-  @include tablet {
-    margin: 0 1.5rem;
-  }
-
-  @include desktop {
-    // width: 1080px;
-    // margin: 0 auto;
-    width: 40%;
-  }
-
-  &__avatar {
-    min-height: 3rem;
-    min-width: 3rem;
-    max-height: 3rem;
-    max-width: 3rem;
-    border-radius: 50%;
-    margin-right: 1rem;
-    background-color: $color-mercury;
-  }
-
-  &__info-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    @include desktop {
-      flex-grow: unset;
-    }
-  }
-
-  &__header {
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 0.5rem;
-  }
-
-  &__username {
-    @include spacing-reset;
-    margin-right: 1rem;
-  }
-
-  &__date {
-    color: $color-silver;
-    font-size: 0.875rem;
-  }
-
-  // &__comment {
-  //   min-height: 3rem; // questionable for now??
-  // }
-}
-
-.recommendation {
-  margin: 0 1rem;
-
-  @include tablet {
-    width: 21.875rem;
-  }
-
-  @include desktop {
-    // width: 1080px;
-    // margin: 0 auto;
-  }
-
-  &__title {
-    color: $color-silver;
-    margin: 2.5rem 0;
-  }
-}
-
-.recommendation-card {
-  display: flex;
-  margin-bottom: 1.5rem;
-  height: 4.375rem;
-
-  &__video {
-    width: 7.5rem;
-    margin-right: 1rem;
-    border-radius: $border-radius;
-  }
-
-  &__info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  &__video-title {
-    @include spacing-reset;
-    font-weight: 700;
-  }
-
-  &__user {
-    font-weight: 500;
+    width: 1080px;
+    margin: 0 auto;
   }
 }
 
 .content-recommendation-container {
-  max-width: 40%;
+  @include desktop {
+    width: 23rem;
+  }
 }
 
 .content-container {
-  max-width: 40%;
-}
-
-.main-container {
-  display: flex;
+  @include desktop {
+    flex-grow: 1;
+  }
 }

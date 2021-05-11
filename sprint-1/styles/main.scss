@@ -2,100 +2,49 @@
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/global';
 @use '../styles/partials/typography';
-
-.header {
-  display: flex;
-  flex-direction: column;
-  height: 10.562rem;
-  margin: 0 1rem;
-
-  @include tablet {
-    flex-direction: row;
-    height: 5rem;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__logo {
-    height: 1.75rem;
-    margin: 1rem 0 0.625rem 0;
-  }
-
-  &__input {
-    font-family: "AvenirNext LT Pro";
-    padding: 0.75rem;
-    height: 3rem;
-    width: 100%;
-    border-radius: $border-radius;
-    background: $color-alabaster;
-    border: $divider-border;
-
-    &::focus {
-      border: 1px solid #0095ff;
-    }
-
-    @include tablet {
-    }
-  }
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem 0 1rem 0;
-
-    // @include tablet {
-    //   display: unset;
-    //   justify-content: unset;
-    // }
-  }
-
-  &__wrapper {
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-right: 1rem;
-    }
-  }
-
-  &__upload {
-    @include cta-button;
-
-    @include tablet {
-      margin: 0 1.5rem;
-      width: 6.25rem;
-    }
-
-    &:hover {
-      background: $primary-cta-hover;
-    }
-  }
-
-  &__avatar {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-
-    @include tablet {
-      justify-self: flex-end;
-    }
-  }
-}
+@use './partials/header';
 
 .video {
   &__player {
     height: 11.437;
     width: 100%;
+
+    @include desktop {
+      width: 59rem;
+    }
   }
 
-  &__container {
+  &__wrapper {
     margin: 0 1rem;
     display: flex;
     flex-flow: column wrap;
+
+    @include tablet {
+      margin: 0 1.5rem;
+    }
+
+    @include desktop {
+      // width: 1080px;
+      // margin: 0 auto;
+    }
   }
 
   &__title {
     margin: 2rem 0 1rem 0;
+
+    @include tablet {
+      margin: 3rem 0 1.5rem 0;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      border-bottom: $divider-border;
+      margin-bottom: 2.5rem;
+    }
   }
 
   &__user-container {
@@ -107,6 +56,10 @@
     margin: 0;
     padding: 0;
     margin-right: 0.5rem;
+
+    @include tablet {
+      margin-right: 1rem;
+    }
   }
 
   &__date {
@@ -119,45 +72,97 @@
     padding-bottom: 1.5rem;
     margin: 2rem 0 1.5rem 0;
     border-bottom: $divider-border;
+
+    @include tablet {
+      margin: 0;
+      border-bottom: none;
+      padding: 0;
+    }
   }
 
   &__info {
     margin-right: 1rem;
     color: $color-black;
+
+    @include tablet {
+      margin: 0 0 0 1.5rem;
+    }
   }
 
   &__icon {
     margin-right: 0.5rem;
   }
 
-  // &__description {
-  //remove and add margin to comment section
-  //might not need this selector at all if i change p size and color
-  // }
+  &__description {
+    @include tablet {
+      width: 70%;
+    }
+  }
 }
 
 .comment {
   margin: 0 1rem;
 
-  &__count {
-    margin: 2.5rem 0 2rem 0;
+  @include tablet {
+    margin: 0 1.5rem;
   }
 
-  &__container {
+  @include desktop {
+    // width: 1080px;
+    // margin: 0 auto;
+  }
+
+  &__count {
+    margin: 2.5rem 0 2rem 0;
+
+    @include tablet {
+      margin: 4rem 0 2rem 0;
+    }
+  }
+
+  &__wrapper {
     display: flex;
     flex-direction: row;
     border-bottom: $divider-border;
+
+    @include tablet {
+      padding-bottom: 1.5rem;
+    }
+
+    @include desktop {
+      width: 40%;
+    }
   }
 
   &__avatar {
     @extend .header__avatar;
     margin-right: 1rem;
+
+    @include tablet {
+      align-self: flex-end;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    @include tablet {
+      flex-direction: row;
+    }
+
+    @include desktop {
+      width: unset;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   &__label {
@@ -184,6 +189,11 @@
     &:focus {
       border: $primary-cta solid 2px;
     }
+
+    @include tablet {
+      height: 3rem;
+      width: 100%;
+    }
   }
 
   &__submit {
@@ -193,6 +203,12 @@
     &:hover {
       background: $primary-cta-hover;
     }
+
+    @include tablet {
+      align-self: flex-end;
+      width: 16rem;
+      margin: 0 2.5rem 0 1rem;
+    }
   }
 }
 
@@ -201,6 +217,16 @@
   border-bottom: $divider-border;
   padding: 1.5rem 0;
   margin: 0 1rem;
+
+  @include tablet {
+    margin: 0 1.5rem;
+  }
+
+  @include desktop {
+    // width: 1080px;
+    // margin: 0 auto;
+    width: 40%;
+  }
 
   &__avatar {
     min-height: 3rem;
@@ -216,16 +242,23 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+
+    @include desktop {
+      flex-grow: unset;
+    }
   }
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    align-items: center;
+
     margin-bottom: 0.5rem;
   }
 
   &__username {
     @include spacing-reset;
+    margin-right: 1rem;
   }
 
   &__date {
@@ -240,6 +273,15 @@
 
 .recommendation {
   margin: 0 1rem;
+
+  @include tablet {
+    width: 21.875rem;
+  }
+
+  @include desktop {
+    // width: 1080px;
+    // margin: 0 auto;
+  }
 
   &__title {
     color: $color-silver;
@@ -272,4 +314,16 @@
   &__user {
     font-weight: 500;
   }
+}
+
+.content-recommendation-container {
+  max-width: 40%;
+}
+
+.content-container {
+  max-width: 40%;
+}
+
+.main-container {
+  display: flex;
 }

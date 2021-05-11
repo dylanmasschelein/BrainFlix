@@ -1,0 +1,95 @@
+@use './mixins' as *;
+@use './variables' as *;
+body {
+  @include tablet {
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 10.562rem;
+  margin: 0 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1.5rem;
+  }
+
+  @include desktop {
+    width: 1080px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    height: 1.75rem;
+    margin: 1rem 0 0.625rem 0;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__input {
+    font-family: "AvenirNext LT Pro";
+    padding: 0.75rem;
+    height: 3rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background: $color-alabaster;
+    border: $divider-border;
+
+    &::focus {
+      border: 1px solid #0095ff;
+    }
+
+    @include tablet {
+      width: 12.5rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0 1rem 0;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 1rem;
+    }
+  }
+
+  &__upload {
+    @include cta-button;
+
+    @include tablet {
+      margin: 0 1.5rem;
+      width: 6.25rem;
+    }
+
+    &:hover {
+      background: $primary-cta-hover;
+    }
+  }
+
+  &__avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+
+    @include tablet {
+      justify-self: flex-end;
+    }
+  }
+}

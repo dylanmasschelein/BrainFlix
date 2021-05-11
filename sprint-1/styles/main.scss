@@ -1,59 +1,70 @@
-@use './variables' as *;
-@use './mixins' as *;
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
-
-//reset all heading spacing
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/global';
+@use '../styles/partials/typography';
 
 .header {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   height: 10.562rem;
   margin: 0 1rem;
 
+  @include tablet {
+    flex-direction: row;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__logo {
     height: 1.75rem;
-    margin: 0.625rem 0;
+    margin: 1rem 0 0.625rem 0;
   }
 
   &__input {
+    font-family: "AvenirNext LT Pro";
+    padding: 0.75rem;
     height: 3rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background: $color-alabaster;
+    border: $divider-border;
+
+    &::focus {
+      border: 1px solid #0095ff;
+    }
+
+    @include tablet {
+    }
   }
 
   &__container {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0 1rem 0;
+
+    // @include tablet {
+    //   display: unset;
+    //   justify-content: unset;
+    // }
+  }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 1rem;
+    }
   }
 
   &__upload {
     @include cta-button;
+
+    @include tablet {
+      margin: 0 1.5rem;
+      width: 6.25rem;
+    }
 
     &:hover {
       background: $primary-cta-hover;
@@ -64,6 +75,10 @@ body {
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
+
+    @include tablet {
+      justify-self: flex-end;
+    }
   }
 }
 
@@ -106,21 +121,19 @@ body {
     border-bottom: $divider-border;
   }
 
-  &__views {
+  &__info {
     margin-right: 1rem;
-  }
-
-  &__likes {
+    color: $color-black;
   }
 
   &__icon {
     margin-right: 0.5rem;
   }
 
-  &__description {
-    //remove and add margin to comment section
-    //might not need this selector at all if i change p size and color
-  }
+  // &__description {
+  //remove and add margin to comment section
+  //might not need this selector at all if i change p size and color
+  // }
 }
 
 .comment {
@@ -148,16 +161,29 @@ body {
   }
 
   &__label {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: bold;
     color: $color-silver;
     margin-bottom: 0.25rem;
   }
 
   &__input {
-    height: 2.25rem;
-    border-radius: 0.25rem;
-    padding: 0.75rem;
+    font-family: "AvenirNext LT Pro";
+    height: 6rem;
+    border-radius: $border-radius;
+    padding: 1rem;
     background: $color-alabaster;
-    border: $divider-border;
+    border: $color-mercury solid 2px;
+    resize: none;
+
+    &::placeholder {
+      color: $color-black;
+    }
+
+    &:focus {
+      border: $primary-cta solid 2px;
+    }
   }
 
   &__submit {
@@ -168,7 +194,82 @@ body {
       background: $primary-cta-hover;
     }
   }
+}
 
-  &__section {
+.comment-card {
+  display: flex;
+  border-bottom: $divider-border;
+  padding: 1.5rem 0;
+  margin: 0 1rem;
+
+  &__avatar {
+    min-height: 3rem;
+    min-width: 3rem;
+    max-height: 3rem;
+    max-width: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: $color-mercury;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  &__username {
+    @include spacing-reset;
+  }
+
+  &__date {
+    color: $color-silver;
+    font-size: 0.875rem;
+  }
+
+  // &__comment {
+  //   min-height: 3rem; // questionable for now??
+  // }
+}
+
+.recommendation {
+  margin: 0 1rem;
+
+  &__title {
+    color: $color-silver;
+    margin: 2.5rem 0;
+  }
+}
+
+.recommendation-card {
+  display: flex;
+  margin-bottom: 1.5rem;
+  height: 4.375rem;
+
+  &__video {
+    width: 7.5rem;
+    margin-right: 1rem;
+    border-radius: $border-radius;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__video-title {
+    @include spacing-reset;
+    font-weight: 700;
+  }
+
+  &__user {
+    font-weight: 500;
   }
 }

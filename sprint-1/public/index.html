@@ -23,39 +23,38 @@
         alt="BrainFlix logo"
         class="header__logo"
       />
+      <div class="header__wrapper">
       <input type="text" placeholder="Search" class="header__input" />
       <div class="header__container">
-        <button class="header__upload">+ UPLOAD</button>
+        <button class="header__upload"><img src="../assets/Icons/Icon-upload.svg" alt="plus sign svg"> UPLOAD</button>
         <img
           src="../Assets/Images/Mohan-muruge.jpg"
           alt="avatar placeholder"
           class="header__avatar"
-          height="50px"
-          width="50px"
         />
+      </div>
       </div>
     </header>
     <main>
       <section class="video">
-        <video
-          src="https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=1432s"
-          class="video__player"
-        ></video>
+        <video class="video__player" controls>
+           <source src="https://project-2-api.herokuapp.com/stream">
+        </video>
         <div class="video__container">
-          <h2 class="video__title">BMX Rampage: 2018 Highlights</h2>
+          <h1 class="video__title">BMX Rampage: 2018 Highlights</h1>
           <div class="video__user-container">
-            <h3 class="video__user">By Red Cow</h3>
+            <h2 class="video__user">By Red Cow</h2>
             <span class="video__date">12/18/2018</span>
           </div>
           <div class="video__info-container">
-            <span class="video__views"
+            <span class="video__info"
               ><img
                 src="../Assets/Icons/Icon-views.svg"
                 alt="views icon"
                 class="video__icon"
               />1,000,023</span
             >
-            <span class="video__likes"
+            <span class="video__info"
               ><img
                 src="../Assets/Icons/Icon-likes.svg"
                 alt="likes icon"
@@ -75,7 +74,7 @@
         </div>
       </section>
       <section class="comment">
-        <h3 class="comment__count">Comments</h3>
+        <h2 class="comment__count">Comments</h2>
         <div class="comment__container">
           <img
             src="../Assets/Images/Mohan-muruge.jpg"
@@ -86,29 +85,66 @@
             <label for="comment" class="comment__label"
               >JOIN THE CONVERSATION</label
             >
-            <input
+            <textarea
               type="text"
               name="comment"
               id="comment"
               placeholder="Write comment here"
               class="comment__input"
-            />
+            ></textarea>
             <input type="submit" value="COMMENT" class="comment__submit" />
           </form>
         </div>
-        <div class="comment__section">
+        </section>
+
           <article class="comment-card">
-            <!-- <img
-              src="../Assets/Images/Mohan-muruge.jpg"
-              alt="placeholder avatar"
-              class="comment-card__avatar"
-              height="50px"
-              width="50px"
-            /> -->
+            <div class="comment-card__avatar"></div>
             <div class="comment-card__info-container">
               <div class="comment-card__header">
-                <h4 class="comment-card__username">Micheal Lyons</h4>
-                <span class="comment-card__timestamp">02/02/2302</span>
+                <h3 class="comment-card__username">Micheal Lyons</h3>
+                <span class="comment-card__date">02/02/2302</span>
+              </div>
+              <p class="comment-card__comment">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Praesentium blanditiis tempora dicta, quia nesciunt soluta?
+                Cumque blanditiis ullam id dolore.
+              </p>
+            </div>
+          </article>
+          <article class="comment-card">
+            <div class="comment-card__avatar"></div>
+            <div class="comment-card__info-container">
+              <div class="comment-card__header">
+                <h3 class="comment-card__username">Micheal Lyons</h3>
+                <span class="comment-card__date">02/02/2302</span>
+              </div>
+              <p class="comment-card__comment">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Praesentium blanditiis tempora dicta, quia nesciunt soluta?
+                Cumque blanditiis ullam id dolore.
+              </p>
+            </div>
+          </article>
+          <article class="comment-card">
+            <div class="comment-card__avatar"></div>
+            <div class="comment-card__info-container">
+              <div class="comment-card__header">
+                <h3 class="comment-card__username">Micheal Lyons</h3>
+                <span class="comment-card__date">02/02/2302</span>
+              </div>
+              <p class="comment-card__comment">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Praesentium blanditiis tempora dicta, quia nesciunt soluta?
+                Cumque blanditiis ullam id dolore.
+              </p>
+            </div>
+          </article>
+          <article class="comment-card">
+            <div class="comment-card__avatar"></div>
+            <div class="comment-card__info-container">
+              <div class="comment-card__header">
+                <h3 class="comment-card__username">Micheal Lyons</h3>
+                <span class="comment-card__date">02/02/2302</span>
               </div>
               <p class="comment-card__comment">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -118,15 +154,52 @@
             </div>
           </article>
         </div>
-
-        <div class="recommendation" id="recommendation">
-          <h5 class="recomendation__title"></h5>
-          <video src="" class="recomendation__video"></video>
-          <h5 class="recommendation__video-title">
+      <section class="recommendation">
+        <h4 class="recommendation__title">NEXT VIDEO</h4>
+        <article class='recommendation-card'>
+          <video class="recommendation-card__video">
+            <source src='https://project-2-api.herokuapp.com/stream'>
+          </video>
+          <div class="recommendation-card__info-container">
+          <h3 class="recommendation-card__video-title">
             Lorem ipsum dolor sit amet.
-          </h5>
-          <span class="recommendation__user">Lorem, ipsum.</span>
+          </h3>
+          <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
         </div>
+        </article>
+        <article class='recommendation-card'>
+          <video class="recommendation-card__video">
+            <source src='https://project-2-api.herokuapp.com/stream'>
+          </video>
+          <div class="recommendation-card__info-container">
+          <h3 class="recommendation-card__video-title">
+            Lorem ipsum dolor sit amet.
+          </h3>
+          <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
+        </div>
+        </article>
+        <article class='recommendation-card'>
+          <video class="recommendation-card__video">
+            <source src='https://project-2-api.herokuapp.com/stream'>
+          </video>
+          <div class="recommendation-card__info-container">
+          <h3 class="recommendation-card__video-title">
+            Lorem ipsum dolor sit amet.
+          </h3>
+          <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
+        </div>
+        </article>
+        <article class='recommendation-card'>
+          <video class="recommendation-card__video">
+            <source src='https://project-2-api.herokuapp.com/stream'>
+          </video>
+          <div class="recommendation-card__info-container">
+          <h3 class="recommendation-card__video-title">
+            Lorem ipsum dolor sit amet.
+          </h3>
+          <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
+        </div>
+        </article>
       </section>
     </main>
   </body>

@@ -1,22 +1,28 @@
-import "./App.css";
+import Header from "./components/Header";
+import HeroVideo from "./components/HeroVideo";
+import VideoInfo from "./components/VideoInfo";
+import Comment from "./components/Comment";
+import CommentCard from "./components/CommentCard";
+import RecommendedVideos from "./components/RecommendedVideos";
+import RecommendedCards from "./components/RecommendedCard";
+import "./App.scss";
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <HeroVideo />
+      <main>
+        <div className='content-container'>
+          <VideoInfo />
+          <Comment />
+          <CommentCard />
+        </div>
+        <div className='content-recommendation-container'>
+          <RecommendedVideos />
+          <RecommendedCards />
+        </div>
+      </main>
     </div>
   );
 }

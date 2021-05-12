@@ -2,10 +2,12 @@ import Header from "./components/Header";
 import HeroVideo from "./components/HeroVideo";
 import VideoInfo from "./components/VideoInfo";
 import Comment from "./components/Comment";
-import CommentCard from "./components/CommentCard";
+import CommentList from "./components/CommentList";
 import RecommendedVideos from "./components/RecommendedVideos";
 import RecommendedCards from "./components/RecommendedCard";
 import "./App.scss";
+
+import videoDetails from "./data/video-details.json";
 
 function App() {
   return (
@@ -14,9 +16,9 @@ function App() {
       <HeroVideo />
       <main>
         <div className='content-container'>
-          <VideoInfo />
+          <VideoInfo videoDetails={videoDetails} />
           <Comment />
-          <CommentCard />
+          <CommentList videoDetails={videoDetails} />
         </div>
         <div className='content-recommendation-container'>
           <RecommendedVideos />

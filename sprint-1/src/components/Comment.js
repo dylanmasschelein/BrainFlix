@@ -13,7 +13,7 @@ function Comment() {
         />
         <form action='' className='comment__form'>
           <div className='comment__container'>
-            <label for='comment' className='comment__label'>
+            <label htmlFor='comment' className='comment__label'>
               JOIN THE CONVERSATION
             </label>
             <textarea

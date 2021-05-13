@@ -1,9 +1,11 @@
 import "./HeroVideo.scss";
 
-function HeroVideo() {
+function HeroVideo(props) {
+  const video = props.activeVideo;
+  // console.log(video);
   return (
     <section className='hero'>
-      <video className='hero__player' controls>
+      <video poster={video.image} className='hero__player' controls>
         <source src='' />
       </video>
     </section>

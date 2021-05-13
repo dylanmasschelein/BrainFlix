@@ -3,7 +3,6 @@ import "./RecommendedCard.scss";
 function RecommendedCards(props) {
   return (
     <article className='recommendation-card'>
-      <button></button>
       <img
         id={props.id}
         onClick={props.loadNextVideo}

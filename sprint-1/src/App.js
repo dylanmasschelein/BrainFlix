@@ -5,70 +5,54 @@ import VideoInfo from "./components/VideoInfo";
 import Comment from "./components/Comment";
 import CommentList from "./components/CommentList";
 import RecommendedVideos from "./components/RecommendedVideos";
+import Lodash from "lodash";
 import "./App.scss";
-
 import videoDetails from "./data/video-details.json";
-
+import recVideo from "./data/videos.json";
+const videoList = Lodash.cloneDeep(videoDetails);
+videoList.shift();
+// console.log(videoList);
 class App extends Component {
   state = {
-    videos: videoDetails,
+    recommendedVideos: videoList,
+    videos: videoDetails, // remove initial featured video from this array first ***********************
     activeVideo: videoDetails[0],
   };
 
   loadNextVideo = (e) => {
-    // const upNext = [];
+    //input the id
     const clickedVideoID = e.target.id;
-    // const featured = [];
+
+    // filtering out clicked video and adding it as the new active state
     const featuredVideo = this.state.videos.filter(
       (video) => video.id === clickedVideoID
     );
-    // console.log(featuredVideo);
-    const recommendedVideos = this.state.videos.filter(
+    const featured = featuredVideo[0];
+    // filtering out the clicked video and setting state to the remaining
+    const recommendVideos = this.state.videos.filter(
       (video) => video.id !== clickedVideoID
     );
-    console.log(recommendedVideos);
-    console.log(featuredVideo);
-    console.log(this.state);
-    // console.log(this.state);
     this.setState({
-      videos: recommendedVideos,
-      activeVideo: featuredVideo,
+      videos: videoDetails,
+      recommendedVideos: recommendVideos,
+      activeVideo: featured,
     });
-
-    console.log(this.state);
-
-    // this.state.videos.map((video) => {
-    //   if (clickedVideoID === this.state.activeVideo) {
-    //     featured.push(clickedVideoID);
-    //   } else if (clickedVideoID !== this.state.activeVideo) {
-    //     upNext.push(video);
-    //   }
-    // });
-    // console.log(clickedVideoID);
-    // console.log(featured);
-    // console.log(clickedVideoID !== this.state.activeVideo);
-    // this.setState({
-    //   videos: upNext,
-    //   activeVideo: featured,
-    // });
-    // console.log(upNext);
-    // console.log(this.state.activeVideo);
   };
 
   render() {
     return (
       <div className='App'>
         <Header />
-        <HeroVideo />
+        <HeroVideo activeVideo={this.state.activeVideo} />
         <main>
           <div className='content-container'>
-            <VideoInfo videoDetails={videoDetails} />
-            <Comment videoDetails={videoDetails} />
+            <VideoInfo activeVideo={this.state.activeVideo} />
+            <Comment />
             <CommentList activeVideo={this.state.activeVideo} />
           </div>
           <div className='content-recommendation-container'>
             <RecommendedVideos
-              videoDetails={videoDetails}
+              videoDetails={this.state.recommendedVideos}
               loadNextVideo={this.loadNextVideo}
             />
           </div>

@@ -1,18 +1,20 @@
 import "./VideoInfo.scss";
 import Video from "./Video";
+import { formatDate } from "./DateUtility";
 
 function VideoInfo(props) {
-  const info = props.videoDetails[0];
+  const active = props.activeVideo;
+
   return (
     <section className='video'>
       <Video
-        key={info.id}
-        title={info.title}
-        channel={info.channel}
-        timestamp={info.timestamp}
-        views={info.views}
-        likes={info.likes}
-        description={info.description}
+        key={active.id}
+        title={active.title}
+        channel={active.channel}
+        timestamp={formatDate(active.timestamp)}
+        views={active.views}
+        likes={active.likes}
+        description={active.description}
       />
     </section>
   );

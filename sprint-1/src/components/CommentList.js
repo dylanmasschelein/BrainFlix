@@ -1,9 +1,9 @@
 import "./CommentList.scss";
 import CommentCard from "./CommentCard";
+import { formatDate } from "./DateUtility";
 
 function CommentList(props) {
   const videos = props.activeVideo.comments;
-
   return (
     <section>
       {videos.map((video) => (
@@ -12,7 +12,7 @@ function CommentList(props) {
           <CommentCard
             name={video.name}
             comment={video.comment}
-            timestamp={video.timestamp}
+            timestamp={formatDate(video.timestamp)}
           />
         </article>
       ))}

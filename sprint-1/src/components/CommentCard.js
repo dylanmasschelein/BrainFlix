@@ -1,5 +1,4 @@
 function CommentCard(props) {
-  console.log(props);
   return (
     <div className='comment-card__info-container'>
       <div className='comment-card__header'>

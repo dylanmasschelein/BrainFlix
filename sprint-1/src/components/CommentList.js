@@ -2,18 +2,17 @@ import "./CommentList.scss";
 import CommentCard from "./CommentCard";
 
 function CommentList(props) {
-  const video = props.videoDetails[0].comments;
+  const videos = props.activeVideo.comments;
 
   return (
     <section>
-      {video.map((detail) => (
-        <article className='comment-card'>
+      {videos.map((video) => (
+        <article key={video.id} className='comment-card'>
           <div className='comment-card__avatar'></div>
           <CommentCard
-            key={detail.id}
-            name={detail.name}
-            comment={detail.comment}
-            timestamp={detail.timestamp}
+            name={video.name}
+            comment={video.comment}
+            timestamp={video.timestamp}
           />
         </article>
       ))}

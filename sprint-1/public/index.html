@@ -11,73 +11,74 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>BrainFlix - Home</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!-- <div id="root"></div> -->
-    <header class="header">
-      <img
-        src="../Assets/Logo/Logo-brainflix.svg"
-        alt="BrainFlix logo"
-        class="header__logo"
-      />
-      <div class="header__wrapper">
-        <input type="text" placeholder="Search" class="header__input" />
-        <div class="header__container">
-          <button class="header__upload">
-            <img src="../assets/Icons/Icon-upload.svg" alt="plus sign svg" />
-            UPLOAD
-          </button>
-          <img
-            src="../Assets/Images/Mohan-muruge.jpg"
-            alt="avatar placeholder"
-            class="header__avatar"
-          />
-        </div>
+    <div id="root"></div>
+  </body>
+</html>
+<!-- <header class="header">
+    <img
+      src="../Assets/Logo/Logo-brainflix.svg"
+      alt="BrainFlix logo"
+      class="header__logo"
+    />
+    <div class="header__wrapper">
+      <input type="text" placeholder="Search" class="header__input" />
+      <div class="header__container">
+        <button class="header__upload">
+          <img src="../assets/Icons/Icon-upload.svg" alt="plus sign svg" />
+          UPLOAD
+        </button>
+        <img
+          src="../Assets/Images/Mohan-muruge.jpg"
+          alt="avatar placeholder"
+          class="header__avatar"
+        />
       </div>
-    </header>
-    <section class="hero">
-      <video class="hero__player" controls>
-        <source src="https://project-2-api.herokuapp.com/stream" />
-      </video>
-      </section>
-      <main>
-        <div class='content-container'>
-        <section class="video">
-          <h1 class="video__title">BMX Rampage: 2018 Highlights</h1>
-          <div class="video__container">
-            <div class="video__user-container">
-              <h2 class="video__user">By Red Cow</h2>
-              <span class="video__date">12/18/2018</span>
-            </div>
-            <div class="video__info-container">
-              <span class="video__info"
-                ><img
-                  src="../Assets/Icons/Icon-views.svg"
-                  alt="views icon"
-                  class="video__icon"
-                />1,000,023</span
-              >
-              <span class="video__info"
-                ><img
-                  src="../Assets/Icons/Icon-likes.svg"
-                  alt="likes icon"
-                  class="video__icon"
-                />110,985</span
-              >
-            </div>
+    </div>
+  </header>
+  <section class="hero">
+    <video class="hero__player" controls>
+      <source src="https://project-2-api.herokuapp.com/stream" />
+    </video>
+  </section>
+  <main>
+    <div class="content-container">
+      <section class="video">
+        <h1 class="video__title">BMX Rampage: 2018 Highlights</h1>
+        <div class="video__container">
+          <div class="video__user-container">
+            <h2 class="video__user">By Red Cow</h2>
+            <span class="video__date">12/18/2018</span>
           </div>
-          <p class="video__description">
-            On a gusty day in Southern Utah, a group of 25 daring mountain
-            bikers blew the doors off what is possible on two wheels, unleashing
-            some of the biggest moments the sport has ever seen. While mother
-            nature only allowed for one full run before the conditions made it
-            impossible to ride, that was all that was needed for event veteran
-            Kyle Strait, who won the event for the second time -- eight years
-            after his first Red Cow Rampage title
-          </p>
+          <div class="video__info-container">
+            <span class="video__info"
+              ><img
+                src="../Assets/Icons/Icon-views.svg"
+                alt="views icon"
+                class="video__icon"
+              />1,000,023</span
+            >
+            <span class="video__info"
+              ><img
+                src="../Assets/Icons/Icon-likes.svg"
+                alt="likes icon"
+                class="video__icon"
+              />110,985</span
+            >
+          </div>
+        </div>
+        <p class="video__description">
+          On a gusty day in Southern Utah, a group of 25 daring mountain
+          bikers blew the doors off what is possible on two wheels, unleashing
+          some of the biggest moments the sport has ever seen. While mother
+          nature only allowed for one full run before the conditions made it
+          impossible to ride, that was all that was needed for event veteran
+          Kyle Strait, who won the event for the second time -- eight years
+          after his first Red Cow Rampage title
+        </p>
       </section>
       <section class="comment">
         <h2 class="comment__count">Comments</h2>
@@ -103,6 +104,7 @@
           </form>
         </div>
       </section>
+
       <article class="comment-card">
         <div class="comment-card__avatar"></div>
         <div class="comment-card__info-container">
@@ -117,98 +119,23 @@
           </p>
         </div>
       </article>
-      <article class="comment-card">
-        <div class="comment-card__avatar"></div>
-        <div class="comment-card__info-container">
-          <div class="comment-card__header">
-            <h3 class="comment-card__username">Micheal Lyons</h3>
-            <span class="comment-card__date">02/02/2302</span>
+    </div>
+    <div class="content-recommendation-container">
+      <section class="recommendation">
+        <h4 class="recommendation__title">NEXT VIDEO</h4>
+        <article class="recommendation-card">
+          <video class="recommendation-card__video">
+            <source src="https://project-2-api.herokuapp.com/stream" />
+          </video>
+          <div class="recommendation-card__info-container">
+            <h3 class="recommendation-card__video-title">
+              Lorem ipsum dolor sit amet.
+            </h3>
+            <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
           </div>
-          <p class="comment-card__comment">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Praesentium blanditiis tempora dicta, quia nesciunt soluta? Cumque
-            blanditiis ullam id dolore.
-          </p>
-        </div>
-      </article>
-      <article class="comment-card">
-        <div class="comment-card__avatar"></div>
-        <div class="comment-card__info-container">
-          <div class="comment-card__header">
-            <h3 class="comment-card__username">Micheal Lyons</h3>
-            <span class="comment-card__date">02/02/2302</span>
-          </div>
-          <p class="comment-card__comment">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Praesentium blanditiis tempora dicta, quia nesciunt soluta? Cumque
-            blanditiis ullam id dolore.
-          </p>
-        </div>
-      </article>
-      <article class="comment-card">
-        <div class="comment-card__avatar"></div>
-        <div class="comment-card__info-container">
-          <div class="comment-card__header">
-            <h3 class="comment-card__username">Micheal Lyons</h3>
-            <span class="comment-card__date">02/02/2302</span>
-          </div>
-          <p class="comment-card__comment">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Praesentium blanditiis tempora dicta, quia nesciunt soluta? Cumque
-            blanditiis ullam id dolore.
-          </p>
-        </div>
-      </div>
-      </article>
-      <div class="content-recommendation-container">
-        <section class="recommendation">
-          <h4 class="recommendation__title">NEXT VIDEO</h4>
-          <article class="recommendation-card">
-            <video class="recommendation-card__video">
-              <source src="https://project-2-api.herokuapp.com/stream" />
-            </video>
-            <div class="recommendation-card__info-container">
-              <h3 class="recommendation-card__video-title">
-                Lorem ipsum dolor sit amet.
-              </h3>
-              <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
-            </div>
-          </article>
-          <article class="recommendation-card">
-            <video class="recommendation-card__video">
-              <source src="https://project-2-api.herokuapp.com/stream" />
-            </video>
-            <div class="recommendation-card__info-container">
-              <h3 class="recommendation-card__video-title">
-                Lorem ipsum dolor sit amet.
-              </h3>
-              <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
-            </div>
-          </article>
-          <article class="recommendation-card">
-            <video class="recommendation-card__video">
-              <source src="https://project-2-api.herokuapp.com/stream" />
-            </video>
-            <div class="recommendation-card__info-container">
-              <h3 class="recommendation-card__video-title">
-                Lorem ipsum dolor sit amet.
-              </h3>
-              <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
-            </div>
-          </article>
-          <article class="recommendation-card">
-            <video class="recommendation-card__video">
-              <source src="https://project-2-api.herokuapp.com/stream" />
-            </video>
-            <div class="recommendation-card__info-container">
-              <h3 class="recommendation-card__video-title">
-                Lorem ipsum dolor sit amet.
-              </h3>
-              <h4 class="recommendation-card__user">Lorem, ipsum.</h4>
-            </div>
-          </article>
-        </section>
-      </div>
-    </main>
-  </body>
-</html>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html> -->

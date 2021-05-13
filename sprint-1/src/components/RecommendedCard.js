@@ -11,7 +11,12 @@ function RecommendedCards(props) {
         className='recommendation-card__video'
       />
       <div className='recommendation-card__info-container'>
-        <h3 className='recommendation-card__video-title'>{props.title}</h3>
+        <h3
+          onClick={props.loadNextVideo}
+          className='recommendation-card__video-title'
+        >
+          {props.title}
+        </h3>
         <h4 className='recommendation-card__user'>{props.channel}</h4>
       </div>
     </article>

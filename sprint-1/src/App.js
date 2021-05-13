@@ -8,30 +8,23 @@ import RecommendedVideos from "./components/RecommendedVideos";
 import Lodash from "lodash";
 import "./App.scss";
 import videoDetails from "./data/video-details.json";
-import recVideo from "./data/videos.json";
+import recVideos from "./data/videos.json";
+
 const videoList = Lodash.cloneDeep(videoDetails);
 videoList.shift();
-// console.log(videoList);
+
 class App extends Component {
   state = {
     recommendedVideos: videoList,
-    videos: videoDetails, // remove initial featured video from this array first ***********************
     activeVideo: videoDetails[0],
   };
 
-  loadNextVideo = (e) => {
-    //input the id
-    const clickedVideoID = e.target.id;
-
-    // filtering out clicked video and adding it as the new active state
-    const featuredVideo = this.state.videos.filter(
-      (video) => video.id === clickedVideoID
-    );
+  loadNextVideo = (id) => {
+    const featuredVideo = videoDetails.filter((video) => video.id === id);
     const featured = featuredVideo[0];
-    // filtering out the clicked video and setting state to the remaining
-    const recommendVideos = this.state.videos.filter(
-      (video) => video.id !== clickedVideoID
-    );
+
+    const recommendVideos = recVideos.filter((video) => video.id !== id);
+
     this.setState({
       videos: videoDetails,
       recommendedVideos: recommendVideos,

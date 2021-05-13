@@ -14,7 +14,7 @@ function RecommendedVideos(props) {
           image={video.image}
           title={video.title}
           channel={video.channel}
-          loadNextVideo={props.loadNextVideo}
+          loadNextVideo={() => props.loadNextVideo(video.id)}
         />
       ))}
     </section>

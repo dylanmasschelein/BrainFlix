@@ -1,10 +1,8 @@
 import "./Comment.scss";
-import avatar from "../assets/Images/Icons/Mohan-muruge.jpg";
+import avatar from "../../assets/Images/Icons/Mohan-muruge.jpg";
 
 function Comment(props) {
   const comments = props.activeVideo.comments.length;
-
-  console.log(comments);
 
   return (
     <section className='comment'>

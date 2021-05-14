@@ -22,9 +22,9 @@ main {
   @include desktop {
     display: flex;
     justify-content: space-between;
-
     width: 1080px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
 }
 
@@ -37,5 +37,6 @@ main {
 .content-container {
   @include desktop {
     flex-grow: 1;
+    border-right: $divider-border;
   }
 }

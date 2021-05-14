@@ -1,6 +1,6 @@
 import "./VideoInfo.scss";
-import Video from "./Video";
-import { formatDate } from "./DateUtility";
+import Video from "../Video/Video";
+import { formatDate } from "../Utilities/DateUtility";
 
 function VideoInfo(props) {
   const { id, title, channel, timestamp, views, likes, description } =

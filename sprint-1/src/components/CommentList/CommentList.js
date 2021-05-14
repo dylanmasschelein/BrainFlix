@@ -1,6 +1,6 @@
 import "./CommentList.scss";
-import CommentCard from "./CommentCard";
-import { formatDate } from "./DateUtility";
+import CommentCard from "../CommentCard/CommentCard";
+import { formatDate } from "../Utilities/DateUtility";
 
 function CommentList(props) {
   const videos = props.activeVideo.comments;

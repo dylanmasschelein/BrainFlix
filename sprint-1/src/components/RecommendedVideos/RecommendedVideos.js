@@ -1,5 +1,5 @@
 import "./RecommendedVideos.scss";
-import RecommendedCard from "./RecommendedCard";
+import RecommendedCard from "../RecommendedCard/RecommendedCard";
 
 function RecommendedVideos(props) {
   const videos = props.videoDetails;

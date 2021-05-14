@@ -2,7 +2,6 @@ import "./HeroVideo.scss";
 
 function HeroVideo(props) {
   const { image } = props.activeVideo;
-  // console.log(video);
   return (
     <section className='hero'>
       <video poster={image} className='hero__player' controls>

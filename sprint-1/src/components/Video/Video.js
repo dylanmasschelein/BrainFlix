@@ -1,5 +1,5 @@
-import viewsIcon from "../assets/Images/Icons/Icon-views.svg";
-import likesIcon from "../assets/Images/Icons/Icon-likes.svg";
+import viewsIcon from "../../assets/Images/Icons/Icon-views.svg";
+import likesIcon from "../../assets/Images/Icons/Icon-likes.svg";
 
 function Video(props) {
   const { title, channel, timestamp, views, likes, description } = props;

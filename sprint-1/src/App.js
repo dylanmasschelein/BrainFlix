@@ -1,10 +1,10 @@
 import { Component } from "react";
-import Header from "./components/Header";
-import HeroVideo from "./components/HeroVideo";
-import VideoInfo from "./components/VideoInfo";
-import Comment from "./components/Comment";
-import CommentList from "./components/CommentList";
-import RecommendedVideos from "./components/RecommendedVideos";
+import Header from "./components/Header/Header";
+import HeroVideo from "./components/HeroVideo/HeroVideo";
+import VideoInfo from "./components/VideoInfo/VideoInfo";
+import Comment from "./components/Comment/Comment";
+import CommentList from "./components/CommentList/CommentList";
+import RecommendedVideos from "./components/RecommendedVideos/RecommendedVideos";
 import "./App.scss";
 import videoDetails from "./data/video-details.json";
 import recVideos from "./data/videos.json";
@@ -38,7 +38,10 @@ class App extends Component {
         <main>
           <div className='content-container'>
             <VideoInfo activeVideo={this.state.activeVideo} />
-            <Comment activeVideo={this.state.activeVideo} />
+            <Comment
+              activeVideo={this.state.activeVideo}
+              newComment={this.newComment}
+            />
             <CommentList activeVideo={this.state.activeVideo} />
           </div>
           <div className='content-recommendation-container'>

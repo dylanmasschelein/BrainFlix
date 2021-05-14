@@ -53,25 +53,3 @@ class App extends Component {
   }
 }
 export default App;
-
-// function App() {
-
-//   return (
-//     <div className='App'>
-//       <Header />
-//       <HeroVideo />
-//       <main>
-//         <div className='content-container'>
-//           <VideoInfo videoDetails={videoDetails} />
-//           <Comment videoDetails={videoDetails} />
-//           <CommentList videoDetails={videoDetails} />
-//         </div>
-//         <div className='content-recommendation-container'>
-//           <RecommendedVideos videoDetails={videoDetails} />
-//         </div>
-//       </main>
-//     </div>
-//   );
-// }
-
-// export default App;

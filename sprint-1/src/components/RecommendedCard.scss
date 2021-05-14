@@ -18,6 +18,7 @@
     width: 7.5rem;
     margin-right: 1rem;
     border-radius: $border-radius;
+    cursor: pointer;
   }
 
   &__info-container {
@@ -29,6 +30,7 @@
   &__video-title {
     @include spacing-reset;
     font-weight: 700;
+    cursor: pointer;
 
     @include tablet {
       padding-right: 3rem;

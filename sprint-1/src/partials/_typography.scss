@@ -9,7 +9,7 @@
       format("woff"),
     url("../assets/Fonts/converted-fonts/AvenirNextLTPro-Bold.ttf")
       format("truetype");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -21,7 +21,7 @@
       format("woff"),
     url("../assets/Fonts/converted-fonts/AvenirNextLTPro-Demi.ttf")
       format("truetype");
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -95,7 +95,7 @@ body {
 h1 {
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 800;
+  font-weight: 700;
 
   @include tablet {
     font-size: 2.25rem;
@@ -110,22 +110,22 @@ h2 {
   @include tablet {
     font-size: 1.5rem;
     line-height: 2rem;
+    font-weight: 600;
   }
 }
 
 h3 {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 600;
 }
 
-p, // and contact information whatever that may be
+p,
 h4 {
-  // and Lists and comments
   font-size: 0.8125rem;
   line-height: 1.125rem;
 
   @include tablet {
-    //lists and contact information have 1.25rem line-height instead of 1.375rem
     font-size: 0.875rem;
     line-height: 1.375rem;
   }

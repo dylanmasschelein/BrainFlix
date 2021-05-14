@@ -11,8 +11,8 @@ function Header() {
         <input type='text' placeholder='Search' className='header__input' />
         <div className='header__container'>
           <button className='header__upload'>
-            <img src={plus} alt='plus sign svg' />
-            UPLOAD
+            <img src={plus} alt='plus sign svg' className='header__icon' />
+            &nbsp; UPLOAD
           </button>
           <img
             src={avatar}

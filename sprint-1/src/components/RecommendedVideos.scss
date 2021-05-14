@@ -5,15 +5,21 @@
   margin: 0 1rem;
 
   @include tablet {
-    width: 21.875rem;
+    display: flex;
+    flex-flow: row wrap;
   }
 
   @include desktop {
-    margin: 0 0 0 1.5rem;
+    width: 21.875rem;
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    border-left: $divider-border;
   }
 
   &__title {
     color: $color-silver;
-    margin: 2.5rem 0;
+    padding: 2.5rem 0;
+    font-weight: 500;
+    width: 100%;
   }
 }

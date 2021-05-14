@@ -6,6 +6,14 @@
   margin-bottom: 1.5rem;
   height: 4.375rem;
 
+  @include tablet {
+    width: 50%;
+  }
+
+  @include desktop {
+    width: unset;
+  }
+
   &__video {
     width: 7.5rem;
     margin-right: 1rem;
@@ -21,6 +29,14 @@
   &__video-title {
     @include spacing-reset;
     font-weight: 700;
+
+    @include tablet {
+      padding-right: 3rem;
+    }
+
+    @include desktop {
+      padding-right: 0;
+    }
   }
 
   &__user {

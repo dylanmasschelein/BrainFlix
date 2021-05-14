@@ -5,7 +5,7 @@ function CommentCard(props) {
         <h3 className='comment-card__username'>{props.name}</h3>
         <span className='comment-card__date'>{props.timestamp}</span>
       </div>
-      <p className='comment-card__comment'>{props.comment}</p>
+      <p>{props.comment}</p>
     </div>
   );
 }

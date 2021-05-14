@@ -2,7 +2,7 @@
 @use '../partials/mixins' as *;
 
 .hero {
-  @include desktop {
+  @include tablet {
     display: flex;
     justify-content: center;
     background: black;
@@ -11,6 +11,11 @@
   &__player {
     height: 11.437;
     width: 100%;
+
+    @include tablet {
+      width: 43.75rem;
+      height: 25rem;
+    }
 
     @include desktop {
       height: 33.75rem;

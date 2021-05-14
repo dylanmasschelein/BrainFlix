@@ -5,12 +5,11 @@ import VideoInfo from "./components/VideoInfo";
 import Comment from "./components/Comment";
 import CommentList from "./components/CommentList";
 import RecommendedVideos from "./components/RecommendedVideos";
-import Lodash from "lodash";
 import "./App.scss";
 import videoDetails from "./data/video-details.json";
 import recVideos from "./data/videos.json";
 
-const videoList = Lodash.cloneDeep(videoDetails);
+const videoList = [...recVideos];
 videoList.shift();
 
 class App extends Component {
@@ -26,7 +25,6 @@ class App extends Component {
     const recommendVideos = recVideos.filter((video) => video.id !== id);
 
     this.setState({
-      videos: videoDetails,
       recommendedVideos: recommendVideos,
       activeVideo: featured,
     });
@@ -40,7 +38,7 @@ class App extends Component {
         <main>
           <div className='content-container'>
             <VideoInfo activeVideo={this.state.activeVideo} />
-            <Comment />
+            <Comment activeVideo={this.state.activeVideo} />
             <CommentList activeVideo={this.state.activeVideo} />
           </div>
           <div className='content-recommendation-container'>

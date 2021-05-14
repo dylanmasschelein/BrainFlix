@@ -2,15 +2,13 @@ import "./Comment.scss";
 import avatar from "../assets/Images/Icons/Mohan-muruge.jpg";
 
 function Comment(props) {
-  // const videos = props.videoDetails;
-  // const commentList = videos
-  //   .filter((video) => video.id === "1af0jruup5gu")
-  //   .map((video) => video.comments)
-  //   .map((comment) => comment.length);
+  const comments = props.activeVideo.comments.length;
+
+  console.log(comments);
 
   return (
     <section className='comment'>
-      <h2 className='comment__count'>Comments</h2>
+      <h3 className='comment__count'>{comments} Comments</h3>
       <div className='comment__wrapper'>
         <img
           src={avatar}

@@ -11,14 +11,14 @@
   }
 
   @include desktop {
-    margin: 0 1.5rem 0 0;
+    margin: 0;
   }
 
   &__title {
     margin: 2rem 0 1rem 0;
 
     @include tablet {
-      margin: 3rem 0 1.5rem 0;
+      margin: 3rem 0 1rem 0;
     }
   }
 
@@ -30,8 +30,8 @@
       border-bottom: $divider-border;
       margin-bottom: 2.5rem;
 
-      @include desktop {
-        margin-right: 2rem;
+      @include tablet {
+        padding-bottom: 1rem;
       }
     }
   }
@@ -48,6 +48,7 @@
 
     @include tablet {
       margin-right: 1rem;
+      font-size: 1.25rem;
     }
   }
 
@@ -70,11 +71,23 @@
   }
 
   &__info {
+    display: flex;
+    height: 1rem;
     margin-right: 1rem;
     color: $color-black;
 
     @include tablet {
       margin: 0 0 0 1.5rem;
+
+      &--style {
+        padding-right: 2.5rem;
+      }
+
+      @include desktop {
+        &--style {
+          padding-right: 2rem;
+        }
+      }
     }
   }
 

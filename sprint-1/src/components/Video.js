@@ -7,7 +7,7 @@ function Video(props) {
       <h1 className='video__title'>{props.title}</h1>
       <div className='video__container'>
         <div className='video__user-container'>
-          <h2 className='video__user'>{props.channel}</h2>
+          <h2 className='video__user'>By {props.channel}</h2>
           <span className='video__date'>{props.timestamp}</span>
         </div>
         <div className='video__info-container'>
@@ -15,7 +15,7 @@ function Video(props) {
             <img src={viewsIcon} alt='views icon' className='video__icon' />
             {props.views}
           </span>
-          <span className='video__info'>
+          <span className='video__info video__info--style'>
             <img src={likesIcon} alt='likes icon' className='video__icon' />
             {props.likes}
           </span>

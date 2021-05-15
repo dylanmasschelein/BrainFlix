@@ -3,6 +3,7 @@ import RecommendedCard from "../RecommendedCard/RecommendedCard";
 
 function RecommendedVideos(props) {
   const videos = props.videoDetails;
+  
   return (
     <section className='recommendation'>
       <h4 className='recommendation__title'>NEXT VIDEO</h4>

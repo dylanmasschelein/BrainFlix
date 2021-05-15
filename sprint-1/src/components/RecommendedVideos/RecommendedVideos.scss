@@ -5,8 +5,7 @@
   margin: 0 1rem;
 
   @include tablet {
-    display: flex;
-    flex-flow: row wrap;
+    @include flex-flow(row);
   }
 
   @include desktop {

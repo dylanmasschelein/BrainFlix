@@ -13,6 +13,7 @@ const videoList = [...recVideos];
 videoList.shift();
 
 class App extends Component {
+  
   state = {
     recommendedVideos: videoList,
     activeVideo: videoDetails[0],

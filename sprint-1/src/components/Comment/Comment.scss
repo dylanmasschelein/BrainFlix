@@ -23,8 +23,7 @@
   }
 
   &__wrapper {
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(row);
     border-bottom: $divider-border;
 
     @include tablet {
@@ -49,8 +48,7 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    @include flex-direction(column);
     width: 100%;
 
     @include tablet {
@@ -65,8 +63,7 @@
 
   &__container {
     @include tablet {
-      display: flex;
-      flex-direction: column;
+      @include flex-direction(column);
       width: 100%;
     }
   }
@@ -81,6 +78,7 @@
 
   &__input {
     font-family: "AvenirNext LT Pro";
+    
     height: 6rem;
     border-radius: $border-radius;
     padding: 0.85rem;
@@ -91,12 +89,12 @@
 
     &:active {
       outline: none;
-      border: $primary-cta solid 2px;
+      border: $border-active;
     }
 
     &:focus {
       outline: none;
-      border: $primary-cta solid 2px;
+      border: $border-active;
     }
 
     &::placeholder {

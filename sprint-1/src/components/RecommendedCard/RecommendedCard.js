@@ -2,6 +2,7 @@ import "./RecommendedCard.scss";
 
 function RecommendedCards(props) {
   const { id, loadNextVideo, image, title, channel } = props;
+  
   return (
     <article className='recommendation-card'>
       <img
@@ -15,7 +16,7 @@ function RecommendedCards(props) {
         <h3
           onClick={loadNextVideo}
           className='recommendation-card__video-title'
-        >
+          >
           {title}
         </h3>
         <h4 className='recommendation-card__user'>{channel}</h4>

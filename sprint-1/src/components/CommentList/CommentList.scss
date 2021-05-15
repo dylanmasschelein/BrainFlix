@@ -42,9 +42,7 @@
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-justify(space-between, center);
     margin-bottom: 0.5rem;
 
     @include tablet {

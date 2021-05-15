@@ -3,8 +3,7 @@
 
 .hero {
   @include tablet {
-    display: flex;
-    justify-content: center;
+    @include flex-justify(center);
     background: black;
   }
 

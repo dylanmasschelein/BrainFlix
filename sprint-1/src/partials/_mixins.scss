@@ -11,6 +11,27 @@
   align-items: center;
 }
 
+@mixin flex-justify($justify, $align:unset) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flex-direction($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex-flow($direction) {
+  display: flex;
+  flex-flow: $direction wrap;
+}
+
+@mixin zero-auto {
+  margin: 0 auto;
+  width: 1080px;
+}
+
 @mixin cta-button {
   width: 100%;
   height: 3rem;

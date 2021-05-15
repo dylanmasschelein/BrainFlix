@@ -2,9 +2,9 @@
 @use '../../partials/mixins' as *;
 
 .video {
+  @include flex-flow(column);
   margin: 0 1rem;
-  display: flex;
-  flex-flow: column wrap;
+  
 
   @include tablet {
     margin: 0 1.5rem;
@@ -24,8 +24,7 @@
 
   &__container {
     @include tablet {
-      display: flex;
-      justify-content: space-between;
+      @include flex-justify(space-between);
       padding-bottom: 1.5rem;
       border-bottom: $divider-border;
       margin-bottom: 2.5rem;
@@ -42,8 +41,7 @@
   }
 
   &__user {
-    margin: 0;
-    padding: 0;
+    @include spacing-reset;
     margin-right: 0.5rem;
 
     @include tablet {
@@ -64,9 +62,8 @@
     border-bottom: $divider-border;
 
     @include tablet {
-      margin: 0;
+     @include spacing-reset;
       border-bottom: none;
-      padding: 0;
     }
   }
 

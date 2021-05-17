@@ -1,0 +1,39 @@
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+@use './partials/typography';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  @include spacing-reset;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  @include desktop {
+  @include flex-justify(space-between);
+  @include zero-auto;
+    padding: 0 1rem;
+  }
+}
+
+.content-recommendation-container {
+  @include desktop {
+    width: 23rem;
+  }
+}
+
+.content-container {
+  @include desktop {
+    flex-grow: 1;
+    border-right: $divider-border;
+  }
+}

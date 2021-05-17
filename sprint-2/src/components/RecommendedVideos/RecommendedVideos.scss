@@ -1,0 +1,23 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.recommendation {
+  margin: 0 1rem;
+
+  @include tablet {
+    @include flex-flow(row);
+  }
+
+  @include desktop {
+    width: 21.875rem;
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+  }
+
+  &__title {
+    color: $color-silver;
+    padding: 2.5rem 0;
+    font-weight: 500;
+    width: 100%;
+  }
+}

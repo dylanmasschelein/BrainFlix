@@ -1,0 +1,100 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.video {
+  @include flex-flow(column);
+  margin: 0 1rem;
+  
+
+  @include tablet {
+    margin: 0 1.5rem;
+  }
+
+  @include desktop {
+    margin: 0;
+  }
+
+  &__title {
+    margin: 2rem 0 1rem 0;
+
+    @include tablet {
+      margin: 3rem 0 1rem 0;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      @include flex-justify(space-between);
+      padding-bottom: 1.5rem;
+      border-bottom: $divider-border;
+      margin-bottom: 2.5rem;
+
+      @include tablet {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  &__user-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__user {
+    @include spacing-reset;
+    margin-right: 0.5rem;
+
+    @include tablet {
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__date {
+    color: $color-silver;
+  }
+
+  &__info-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+    border-bottom: $divider-border;
+
+    @include tablet {
+     @include spacing-reset;
+      border-bottom: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    height: 1rem;
+    margin-right: 1rem;
+    color: $color-black;
+
+    @include tablet {
+      margin: 0 0 0 1.5rem;
+
+      &--style {
+        padding-right: 2.5rem;
+      }
+
+      @include desktop {
+        &--style {
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+  }
+
+  &__description {
+    @include tablet {
+      width: 75%;
+    }
+  }
+}

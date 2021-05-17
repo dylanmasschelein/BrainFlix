@@ -1,0 +1,70 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.upload-video {
+  @include flex-direction(column);
+
+  @include desktop {
+    @include spacing-reset;
+    margin-left: 1.5rem;
+    flex-grow: 1;
+  }
+
+  &__label {
+    @include label-styles;
+    margin-top: 1.5rem;
+  }
+
+  &__input {
+    @include input-styles;
+    &--description {
+      @include input-styles;
+      height: 8.92rem;
+
+      @include tablet {
+        margin-bottom: 2.5rem;
+      }
+
+      @include desktop {
+        height: 5.875rem;
+      }
+    }
+  }
+
+  &__container {
+    @include tablet {
+      @include flex-justify(flex-end);
+      padding: 2.5rem 0;
+      border-top: $divider-border;
+    }
+
+    @include desktop {
+      width: 100%;
+    }
+  }
+
+  &__publish {
+    @include cta-button;
+    margin: 2rem 0 1.5rem 0;
+
+    @include tablet {
+      @include spacing-reset;
+      order: 2;
+      width: 10rem;
+    }
+  }
+
+  &__cancel {
+    @include cta-button;
+    background: white;
+    color: $primary-cta;
+    text-align: center;
+
+    @include tablet {
+      order: 1;
+      width: 10rem;
+      text-align: right;
+      margin-right: 3rem;
+    }
+  }
+}

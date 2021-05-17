@@ -1,22 +1,22 @@
 import { Component } from "react";
-import Header from "./components/Header/Header";
 import HeroVideo from "./components/HeroVideo/HeroVideo";
 import VideoInfo from "./components/VideoInfo/VideoInfo";
 import Comment from "./components/Comment/Comment";
 import CommentList from "./components/CommentList/CommentList";
 import RecommendedVideos from "./components/RecommendedVideos/RecommendedVideos";
-import Upload from "./components/Upload/Upload";
-import "./App.scss";
+import "./Home.scss";
 import videoDetails from "./data/video-details.json";
 import recVideos from "./data/videos.json";
+import { v4 as uuid } from "uuid";
 
 const videoList = [...recVideos];
 videoList.shift();
 
-class App extends Component {
+class Home extends Component {
   state = {
     recommendedVideos: videoList,
     activeVideo: videoDetails[0],
+    comments: videoDetails[0].comments,
   };
 
   loadNextVideo = (id) => {
@@ -31,19 +31,37 @@ class App extends Component {
     });
   };
 
+  addNewComment = (e) => {
+    e.preventDefault();
+    const newComment = e.target.comment.value;
+    const comment = {
+      name: "",
+      id: uuid(),
+      likes: 0,
+      comment: newComment,
+      timestamp: Date.now(),
+    };
+
+    this.setState({
+      comments: this.state.comments.concat(comment),
+    });
+
+    e.target.reset();
+    console.log(this.state.comments);
+  };
+
   render() {
     return (
       <div className='App'>
-        <Header />
         <HeroVideo activeVideo={this.state.activeVideo} />
         <main>
           <div className='content-container'>
             <VideoInfo activeVideo={this.state.activeVideo} />
             <Comment
               activeVideo={this.state.activeVideo}
-              newComment={this.newComment}
+              addNewComment={this.addNewComment}
             />
-            <CommentList activeVideo={this.state.activeVideo} />
+            <CommentList activeComments={this.state.comments} />
           </div>
           <div className='content-recommendation-container'>
             <RecommendedVideos
@@ -52,10 +70,8 @@ class App extends Component {
             />
           </div>
         </main>
-        <Header />
-        <Upload />
       </div>
     );
   }
 }
-export default App;
+export default Home;

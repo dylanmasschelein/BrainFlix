@@ -1,10 +1,19 @@
 @use '../../partials/variables' as *;
 @use '../../partials/mixins' as *;
 
+.wrapper {
+  @include flex-direction(column);
+  justify-content: flex-start;
+}
+
 .upload {
+  @include flex-direction(column);
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
+
+  @include desktop {
+    @include zero-auto;
+    flex-flow: row wrap;
+  }
 
   &__video {
     padding: 1.5rem 0 2rem 0;
@@ -14,6 +23,10 @@
       padding: 3rem 0 2rem 0;
       border-bottom: $divider-border;
     }
+
+    @include desktop {
+      width: 100%;
+    }
   }
 
   &__thumbnail-title {
@@ -21,6 +34,10 @@
 
     @include tablet {
       padding-top: 2.5rem;
+    }
+
+    @include desktop {
+      padding-top: 1.5rem;
     }
   }
 
@@ -33,62 +50,11 @@
     @include tablet {
       margin-bottom: 1rem;
     }
-  }
-}
 
-.upload-video {
-  display: flex;
-  flex-direction: column;
-  margin: 0 1rem;
-
-  &__label {
-    @include label-styles;
-    margin-top: 1.5rem;
-  }
-
-  &__input {
-    @include input-styles;
-    &--description {
-      @include input-styles;
-      height: 8.92rem;
-
-      @include tablet {
-        margin-bottom: 2.5rem;
-      }
-    }
-  }
-
-  &__container {
-    @include tablet {
-      display: flex;
-      justify-content: flex-end;
-      padding: 2.5rem 0;
-      border-top: $divider-border;
-    }
-  }
-
-  &__publish {
-    @include cta-button;
-    margin: 2rem 0 1.5rem 0;
-
-    @include tablet {
-      @include spacing-reset;
-      order: 2;
-      width: 10rem;
-    }
-  }
-
-  &__cancel {
-    @include cta-button;
-    background: white;
-    color: $primary-cta;
-    text-align: center;
-
-    @include tablet {
-      order: 1;
-      width: 10rem;
-      text-align: right;
-      margin-right: 3rem;
+    @include desktop {
+      width: 21.5rem;
+      height: 11.7rem;
+      margin-bottom: 2.5rem;
     }
   }
 }

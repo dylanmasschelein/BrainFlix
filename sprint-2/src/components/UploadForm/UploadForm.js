@@ -1,9 +1,9 @@
 import "./UploadForm.scss";
 
-function UploadForm() {
+function UploadForm(props) {
   return (
     <>
-      <form action='' className='upload-video'>
+      <form onSubmit={props.handlePublish} className='upload-video'>
         <label for='title' className='upload-video__label'>
           TITLE YOUR VIDEO
         </label>
@@ -20,15 +20,19 @@ function UploadForm() {
           placeholder='Add a description of your video'
           className='upload-video__input upload-video__input--description'
         ></textarea>
+        <div className='upload-video__container'>
+          <input
+            type='submit'
+            value='PUBLISH'
+            className='upload-video__publish'
+          />
+          <input
+            type='cancel'
+            value='CANCEL'
+            className='upload-video__cancel'
+          />
+        </div>
       </form>
-      <div className='upload-video__container'>
-        <input
-          type='submit'
-          value='PUBLISH'
-          className='upload-video__publish'
-        />
-        <input type='cancel' value='CANCEL' className='upload-video__cancel' />
-      </div>
     </>
   );
 }

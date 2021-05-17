@@ -1,6 +1,6 @@
-@use './partials/mixins' as *;
-@use './partials/variables' as *;
-@use './partials/typography';
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/typography';
 
 *,
 *::before,
@@ -19,8 +19,8 @@ a {
 
 main {
   @include desktop {
-  @include flex-justify(space-between);
-  @include zero-auto;
+    @include flex-justify(space-between);
+    @include zero-auto;
     padding: 0 1rem;
   }
 }

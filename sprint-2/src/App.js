@@ -1,77 +1,27 @@
-import { Component } from "react";
-import HeroVideo from "./components/HeroVideo/HeroVideo";
-import VideoInfo from "./components/VideoInfo/VideoInfo";
-import Comment from "./components/Comment/Comment";
-import CommentList from "./components/CommentList/CommentList";
-import RecommendedVideos from "./components/RecommendedVideos/RecommendedVideos";
-import "./Home.scss";
-import videoDetails from "./data/video-details.json";
-import recVideos from "./data/videos.json";
-import { v4 as uuid } from "uuid";
+import HomePage from "./pages/HomePage/HomePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./components/Header/Header";
 
-const videoList = [...recVideos];
-videoList.shift();
-
-class Home extends Component {
-  state = {
-    recommendedVideos: videoList,
-    activeVideo: videoDetails[0],
-    comments: videoDetails[0].comments,
-  };
-
-  loadNextVideo = (id) => {
-    const featuredVideo = videoDetails.filter((video) => video.id === id);
-    const featured = featuredVideo[0];
-
-    const recommendVideos = recVideos.filter((video) => video.id !== id);
-
-    this.setState({
-      recommendedVideos: recommendVideos,
-      activeVideo: featured,
-    });
-  };
-
-  addNewComment = (e) => {
-    e.preventDefault();
-    const newComment = e.target.comment.value;
-    const comment = {
-      name: "",
-      id: uuid(),
-      likes: 0,
-      comment: newComment,
-      timestamp: Date.now(),
-    };
-
-    this.setState({
-      comments: this.state.comments.concat(comment),
-    });
-
-    e.target.reset();
-    console.log(this.state.comments);
-  };
-
-  render() {
-    return (
-      <div className='App'>
-        <HeroVideo activeVideo={this.state.activeVideo} />
-        <main>
-          <div className='content-container'>
-            <VideoInfo activeVideo={this.state.activeVideo} />
-            <Comment
-              activeVideo={this.state.activeVideo}
-              addNewComment={this.addNewComment}
-            />
-            <CommentList activeComments={this.state.comments} />
-          </div>
-          <div className='content-recommendation-container'>
-            <RecommendedVideos
-              videoDetails={this.state.recommendedVideos}
-              loadNextVideo={this.loadNextVideo}
-            />
-          </div>
-        </main>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path='/' component={HomePage} exact />
+          <Route
+            exact
+            path='/:video'
+            render={(routerParams) => {
+              return <HomePage {...routerParams} />;
+            }}
+          ></Route>
+          <Route path='/upload' component={UploadPage} />
+        </Switch>
+      </Router>
+    </div>
+  );
 }
-export default Home;
+
+export default App;

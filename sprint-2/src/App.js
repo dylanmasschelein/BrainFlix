@@ -10,13 +10,7 @@ function App() {
         <Header />
         <Switch>
           <Route path='/' component={HomePage} exact />
-          <Route
-            exact
-            path='/:video'
-            render={(routerParams) => {
-              return <HomePage {...routerParams} />;
-            }}
-          ></Route>
+          <Route path='/:videoId' component={HomePage} />
           <Route path='/upload' component={UploadPage} />
         </Switch>
       </Router>

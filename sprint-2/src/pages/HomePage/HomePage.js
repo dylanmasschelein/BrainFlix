@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Switch, Route } from "react-router-dom";
 import HeroVideo from "../../components/HeroVideo/HeroVideo";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import Comment from "../../components/Comment/Comment";
@@ -9,6 +8,8 @@ import "./HomePage.scss";
 import videoDetails from "../../data/video-details.json";
 import recVideos from "../../data/videos.json";
 import { v4 as uuid } from "uuid";
+// import axios from "axios";
+// const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
 
 const videoList = [...recVideos];
 videoList.shift();
@@ -20,17 +21,38 @@ class Home extends Component {
     comments: videoDetails[0].comments,
   };
 
-  loadNextVideo = (id) => {
-    const featuredVideo = videoDetails.filter((video) => video.id === id);
-    const featured = featuredVideo[0];
-
-    const recommendVideos = recVideos.filter((video) => video.id !== id);
+  componentDidMount() {
+    const recVid = videoDetails.filter((video) => {
+      return video.id !== this.props.match.params.videoId;
+    });
 
     this.setState({
-      recommendedVideos: recommendVideos,
-      activeVideo: featured,
+      recommendedVideos: recVid,
     });
-  };
+
+    if (this.props.match.params.videoId) {
+      const selectedVideo = this.props.match.params.videoId;
+
+      const activeVideo = videoDetails.find(
+        (video) => video.id === selectedVideo
+      );
+
+      this.setState({
+        activeVideo: activeVideo,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState, "prevState");
+    const { videoId } = this.props.match.params;
+
+    if (prevState.activeVideo.id === videoId) {
+      this.setState({
+        activeVideo: videoId,
+      });
+    }
+  }
 
   addNewComment = (e) => {
     e.preventDefault();
@@ -50,6 +72,32 @@ class Home extends Component {
     e.target.reset();
   };
 
+  // componentDidMount() {
+  //   axios
+  //     .get(`https://project-2-api.herokuapp.com/videos?api_key=${API_KEY}`)
+  //     .then((response) => {
+  //       const videoList = response.data;
+  //       videoList.shift();
+  //       return this.setState({
+  //         recommendedVideos: videoList,
+  //       });
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
+  // componentDidMount() {
+  //   axios
+  //     .get(`https://project-2-api.herokuapp.com/videos/${id}api_key=${API_KEY}`)
+  //     .then((response) => {
+  //       const videoList = response.data;
+  //       videoList.shift();
+  //       return this.setState({
+  //         activeVideo,
+  //       });
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
   render() {
     return (
       <div>
@@ -64,18 +112,9 @@ class Home extends Component {
             <CommentList activeComments={this.state.comments} />
           </div>
           <div className='content-recommendation-container'>
-            <RecommendedVideos
-              videoDetails={this.state.recommendedVideos}
-              loadNextVideo={this.loadNextVideo}
-            />
+            <RecommendedVideos videoDetails={this.state.recommendedVideos} />
           </div>
         </main>
-        <Switch>
-          <Route
-            path={this.props.match.url + "/" + this.state.activeVideo.id}
-            render={() => <HeroVideo />}
-          ></Route>
-        </Switch>
       </div>
     );
   }

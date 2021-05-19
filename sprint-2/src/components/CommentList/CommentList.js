@@ -4,7 +4,7 @@ import { formatDate } from "../Utilities/DateUtility";
 
 function CommentList(props) {
   const videos = props.activeComments;
-  console.log(videos);
+
   return (
     <section>
       {videos.map((video) => (

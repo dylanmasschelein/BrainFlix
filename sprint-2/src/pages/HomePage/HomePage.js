@@ -16,40 +16,37 @@ videoList.shift();
 
 class Home extends Component {
   state = {
-    recommendedVideos: videoList,
-    activeVideo: videoDetails[0],
+    recommendedVideos: [],
+    activeVideo: null,
     comments: videoDetails[0].comments,
   };
 
   componentDidMount() {
-    const recVid = videoDetails.filter((video) => {
-      return video.id !== this.props.match.params.videoId;
+    this.setState({
+      activeVideo: videoDetails[0],
     });
+    const recVid = recVideos.filter(
+      (video) => video.id !== this.state.activeVideo.id
+    );
 
     this.setState({
       recommendedVideos: recVid,
     });
-
-    if (this.props.match.params.videoId) {
-      const selectedVideo = this.props.match.params.videoId;
-
-      const activeVideo = videoDetails.find(
-        (video) => video.id === selectedVideo
-      );
-
-      this.setState({
-        activeVideo: activeVideo,
-      });
-    }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState, "prevState");
+  componentDidUpdate(prevProps) {
     const { videoId } = this.props.match.params;
 
-    if (prevState.activeVideo.id === videoId) {
+    if (prevProps.match.params.videoId !== videoId && videoId) {
+      const newVideo = videoDetails.find((video) => video.id === videoId);
+      console.log(newVideo);
+      const recVid = recVideos.filter((video) => {
+        return video.id !== newVideo.id;
+      });
+
       this.setState({
-        activeVideo: videoId,
+        activeVideo: newVideo,
+        recommendedVideos: recVid,
       });
     }
   }
@@ -72,51 +69,30 @@ class Home extends Component {
     e.target.reset();
   };
 
-  // componentDidMount() {
-  //   axios
-  //     .get(`https://project-2-api.herokuapp.com/videos?api_key=${API_KEY}`)
-  //     .then((response) => {
-  //       const videoList = response.data;
-  //       videoList.shift();
-  //       return this.setState({
-  //         recommendedVideos: videoList,
-  //       });
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
-
-  // componentDidMount() {
-  //   axios
-  //     .get(`https://project-2-api.herokuapp.com/videos/${id}api_key=${API_KEY}`)
-  //     .then((response) => {
-  //       const videoList = response.data;
-  //       videoList.shift();
-  //       return this.setState({
-  //         activeVideo,
-  //       });
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
-
   render() {
-    return (
-      <div>
-        <HeroVideo activeVideo={this.state.activeVideo} />
-        <main>
-          <div className='content-container'>
-            <VideoInfo activeVideo={this.state.activeVideo} />
-            <Comment
-              activeVideo={this.state.activeVideo}
-              addNewComment={this.addNewComment}
-            />
-            <CommentList activeComments={this.state.comments} />
-          </div>
-          <div className='content-recommendation-container'>
-            <RecommendedVideos videoDetails={this.state.recommendedVideos} />
-          </div>
-        </main>
-      </div>
-    );
+    console.log(this.state.activeVideo);
+    if (this.state.activeVideo === null) {
+      return <h1>its null ffs</h1>;
+    } else {
+      return (
+        <div>
+          <HeroVideo activeVideo={this.state.activeVideo} />
+          <main>
+            <div className='content-container'>
+              <VideoInfo activeVideo={this.state.activeVideo} />
+              <Comment
+                activeVideo={this.state.activeVideo}
+                addNewComment={this.addNewComment}
+              />
+              <CommentList activeComments={this.state.comments} />
+            </div>
+            <div className='content-recommendation-container'>
+              <RecommendedVideos videoDetails={this.state.recommendedVideos} />
+            </div>
+          </main>
+        </div>
+      );
+    }
   }
 }
 export default Home;

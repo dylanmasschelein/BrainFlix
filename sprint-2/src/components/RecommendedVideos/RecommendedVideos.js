@@ -10,7 +10,7 @@ class RecommendedVideos extends Component {
     recommendedVideos: [],
   };
 
-  componentDidMount() {
+  getRecommendedVideoList() {
     axios.get(`${URL}/videos?api_key=${API_KEY}`).then((response) => {
       const recVid = response.data.filter(
         (video) => video.id !== this.props.activeVideo.id
@@ -19,6 +19,14 @@ class RecommendedVideos extends Component {
         recommendedVideos: recVid,
       });
     });
+  }
+
+  componentDidMount() {
+    this.getRecommendedVideoList();
+  }
+
+  componentDidUpdate() {
+    this.getRecommendedVideoList();
   }
 
   render() {

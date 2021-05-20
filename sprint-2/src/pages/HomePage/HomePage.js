@@ -6,64 +6,38 @@ import CommentList from "../../components/CommentList/CommentList";
 import RecommendedVideos from "../../components/RecommendedVideos/RecommendedVideos";
 import "./HomePage.scss";
 import videoDetails from "../../data/video-details.json";
-import recVideos from "../../data/videos.json";
+// import recVideos from "../../data/videos.json";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
 const URL = `  https://project-2-api.herokuapp.com`;
 
-const videoList = [...recVideos];
-videoList.shift();
-
 class Home extends Component {
   state = {
-    recommendedVideos: [],
-    activeVideo: videoDetails[0],
+    activeVideo: null,
     comments: videoDetails[0].comments,
   };
 
-  getVideoData() {
+  componentDidMount() {
     axios
-      .get(`${URL}/videos?api_key=${API_KEY}`)
+      .get(`${URL}/videos/1af0jruup5gu?api_key=${API_KEY}`)
       .then((response) => {
-        const recVid = response.data.filter(
-          (video) => video.id !== this.state.activeVideo.id
-        );
         this.setState({
-          recommendedVideos: recVid,
+          activeVideo: response.data,
         });
       })
       .catch((err) => console.error(err));
   }
 
-  componentDidMount() {
-    this.getVideoData();
-  }
-
-  getFeaturedVideo() {
+  componentDidUpdate() {
     axios
       .get(
         `${URL}/videos/${this.props.match.params.videoId}?api_key=${API_KEY}`
       )
       .then((response) => {
-        const featuredVideo = response.data;
-        const recVid = recVideos.filter((video) => {
-          return video.id !== featuredVideo.id;
-        });
-        this.setState({
-          activeVideo: featuredVideo,
-          recommendedVideos: recVid,
-        });
+        this.setState({ activeVideo: response.data });
       })
       .catch((err) => console.log(err));
-  }
-
-  componentDidUpdate(prevProps) {
-    const { videoId } = this.props.match.params;
-
-    if (prevProps.match.params.videoId !== videoId && videoId) {
-      this.getFeaturedVideo();
-    }
   }
 
   addNewComment = (e) => {
@@ -85,6 +59,9 @@ class Home extends Component {
   };
 
   render() {
+    if (this.state.activeVideo === null) {
+      return <h1>something</h1>;
+    }
     return (
       <div>
         <HeroVideo activeVideo={this.state.activeVideo} />
@@ -98,7 +75,7 @@ class Home extends Component {
             <CommentList activeComments={this.state.comments} />
           </div>
           <div className='content-recommendation-container'>
-            <RecommendedVideos videoDetails={this.state.recommendedVideos} />
+            <RecommendedVideos activeVideo={this.state.activeVideo} />
           </div>
         </main>
       </div>

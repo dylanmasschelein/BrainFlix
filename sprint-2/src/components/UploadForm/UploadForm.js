@@ -4,7 +4,7 @@ function UploadForm(props) {
   return (
     <>
       <form onSubmit={props.handlePublish} className='upload-video'>
-        <label for='title' className='upload-video__label'>
+        <label htmlFor='title' className='upload-video__label'>
           TITLE YOUR VIDEO
         </label>
         <input
@@ -12,7 +12,7 @@ function UploadForm(props) {
           placeholder='Add a title to your video'
           className='upload-video__input'
         />
-        <label for='' className='upload-video__label'>
+        <label htmlFor='description' className='upload-video__label'>
           ADD A VIDEO DESCRIPTION
         </label>
         <textarea

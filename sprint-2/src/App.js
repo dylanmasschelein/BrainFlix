@@ -15,7 +15,11 @@ function App() {
         <Header />
         <Switch>
           <Route path='/' component={HomePage} exact />
-          <Route path='/upload' exact component={UploadPage} />
+          <Route
+            path='/upload'
+            exact
+            render={(routerProps) => <UploadPage {...routerProps} />}
+          />
           <Route path='/:videoId' exact component={HomePage} />
           <Redirect to='/' />
         </Switch>

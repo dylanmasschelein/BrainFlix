@@ -5,13 +5,16 @@ import CommentList from "../CommentList/CommentList";
 // import CommentForm from "../CommentForm/CommentForm";
 import CommentSubmit from "../CommentSubmit/CommentSubmit";
 import axios from "axios";
-const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
+const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
-function CommentSection({ activeVideo }) {
+function CommentSection({ activeVideo, updateComments }) {
   return (
     <div>
-      <CommentSubmit activeVideo={activeVideo} />
+      <CommentSubmit
+        updateComments={updateComments}
+        activeVideo={activeVideo}
+      />
       <CommentList comments={activeVideo.comments} />
     </div>
   );
@@ -26,23 +29,27 @@ export default CommentSection;
 //     comment: "",
 //   };
 
-//   handleSubmit = (e) => {
-//     console.log(this.state.comments);
-//     e.preventDefault();
-//     axios
-//       .post(
-//         `${URL}/videos/${this.props.activeVideo.id}/comments?api_key=${API_KEY}`,
-//         { name: this.state.name, comment: this.state.comment }
-//       )
-//       .then((response) => {
-//         console.log(this.props.activeVideo);
-//         this.setState({
-//           comments: [...this.state.comments, response],
-//           comment: "",
+// handleSubmit = (e) => {
+//   e.preventDefault();
+//   axios
+//     .post(
+//       `${URL}/videos/${this.props.activeVideo.id}/comments?api_key=${API_KEY}`,
+//       { name: this.state.name, comment: this.state.comment }
+//     )
+//     .then((response) => {
+//       this.setState({
+//         comments: [...this.state.comments, response.data],
+//       });
+//       axios
+//         .get(`${URL}/videos/${this.props.activeVideo.id}?api_key=${API_KEY}`)
+//         .then((response) => {
+//           this.setState({
+//             comments: response.data.comments,
+//           });
 //         });
-//       })
-//       .catch((err) => console.error(err));
-//   };
+//     })
+//     .catch((err) => console.error(err));
+// };
 
 //   handleInput = (e) => {
 //     e.preventDefault();

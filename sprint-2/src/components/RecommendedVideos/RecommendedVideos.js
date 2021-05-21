@@ -2,7 +2,7 @@ import "./RecommendedVideos.scss";
 import RecommendedCard from "../RecommendedCard/RecommendedCard";
 import { Component } from "react";
 import axios from "axios";
-const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
+const API_KEY = "d2dce711-25b7-46e4-ab56-87aa59f86dbf";
 const URL = `https://project-2-api.herokuapp.com`;
 
 class RecommendedVideos extends Component {
@@ -10,15 +10,22 @@ class RecommendedVideos extends Component {
     recommendedVideos: [],
   };
 
+  handleScroll = () => {
+    window.scrollTo(0, 0);
+  };
+
   getRecommendedVideoList() {
-    axios.get(`${URL}/videos?api_key=${API_KEY}`).then((response) => {
-      const recVid = response.data.filter(
-        (video) => video.id !== this.props.activeVideo.id
-      );
-      this.setState({
-        recommendedVideos: recVid,
-      });
-    });
+    axios
+      .get(`${URL}/videos?api_key=${API_KEY}`)
+      .then((response) => {
+        const recVid = response.data.filter(
+          (video) => video.id !== this.props.activeVideo.id
+        );
+        this.setState({
+          recommendedVideos: recVid,
+        });
+      })
+      .catch((err) => console.error(err));
   }
 
   componentDidMount() {

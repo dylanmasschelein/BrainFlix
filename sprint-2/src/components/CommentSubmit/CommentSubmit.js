@@ -2,7 +2,7 @@ import CommentForm from "../CommentForm/CommentForm";
 import "../CommentForm/CommentForm.scss";
 import avatar from "../../assets/Images/Icons/Mohan-muruge.jpg";
 
-function Comment({ activeVideo }) {
+function Comment({ activeVideo, updateComments }) {
   return (
     <section className='comment'>
       <h3 className='comment__count'>Comments</h3>
@@ -12,7 +12,10 @@ function Comment({ activeVideo }) {
           alt='placeholder avatar'
           className='comment__avatar'
         />
-        <CommentForm activeVideo={activeVideo} />
+        <CommentForm
+          updateComments={updateComments}
+          activeVideo={activeVideo}
+        />
       </div>
     </section>
   );

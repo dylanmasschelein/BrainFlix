@@ -5,7 +5,7 @@ import CommentSection from "../../components/CommentSection/CommentSection";
 import RecommendedVideos from "../../components/RecommendedVideos/RecommendedVideos";
 import "./HomePage.scss";
 import axios from "axios";
-const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
+const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
 class Home extends Component {
@@ -15,15 +15,38 @@ class Home extends Component {
 
   //short circut component did mount request with the initial video and if it is changing then display that video
 
-  getInitialVideo() {
+  updateComments = () => {
     axios
-      .get(`${URL}/videos/1af0jruup5gu?api_key=${API_KEY}`)
+      .get(`${URL}/videos/${this.state.activeVideo.id}?api_key=${API_KEY}`)
       .then((response) => {
         this.setState({
           activeVideo: response.data,
         });
-      })
-      .catch((err) => console.error(err));
+      });
+  };
+
+  getInitialVideo() {
+    if (this.props.match.params.videoId === undefined) {
+      axios
+        .get(`${URL}/videos/1af0jruup5gu?api_key=${API_KEY}`)
+        .then((response) => {
+          this.setState({
+            activeVideo: response.data,
+          });
+        })
+        .catch((err) => console.error(err));
+    } else {
+      axios
+        .get(
+          `${URL}/videos/${this.props.match.params.videoId}?api_key=${API_KEY}`
+        )
+        .then((response) => {
+          this.setState({
+            activeVideo: response.data,
+          });
+        });
+    }
+    //ADD CONDITIONAL IN HERE TO RENDER THE INITIA;L VIDEO, OR WHATEVER MATCH.PARAM.VIDEO ID IS IN THE URL
   }
 
   componentDidMount() {
@@ -48,26 +71,10 @@ class Home extends Component {
       this.getInitialVideo();
     }
   }
-
-  // addNewComment = (e) => {
-  //   e.preventDefault();
-  //   const newComment = e.target.comment.value;
-  //   const comment = {
-  //     name: "",
-  //     id: uuid(),
-  //     likes: 0,
-  //     comment: newComment,
-  //     timestamp: Date.now(),
-  //   };
-
-  //   this.setState({
-  //     comments: this.state.comments.concat(comment),
-  //   });
-
-  //   e.target.reset();
-  // };
+  //with router -- look into
 
   render() {
+    console.log(this.props.match.params.videoId);
     if (this.state.activeVideo === null) {
       return <h1>something</h1>;
     }
@@ -77,7 +84,10 @@ class Home extends Component {
         <main>
           <div className='content-container'>
             <VideoInfo activeVideo={this.state.activeVideo} />
-            <CommentSection activeVideo={this.state.activeVideo} />
+            <CommentSection
+              updateComments={this.updateComments}
+              activeVideo={this.state.activeVideo}
+            />
           </div>
           <div className='content-recommendation-container'>
             <RecommendedVideos activeVideo={this.state.activeVideo} />

@@ -1,27 +1,24 @@
 import { Component } from "react";
 import axios from "axios";
-const API_KEY = "32e82fff-22c9-41c3-a628-7e5e75bed3bf";
+const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
 class CommentForm extends Component {
   state = {
-    comments: this.props.activeVideo.comments,
     name: "Active Freddy",
     comment: "",
   };
 
   handleSubmit = (e) => {
-    console.log(this.state.comments);
     e.preventDefault();
     axios
       .post(
         `${URL}/videos/${this.props.activeVideo.id}/comments?api_key=${API_KEY}`,
         { name: this.state.name, comment: this.state.comment }
       )
-      .then((response) => {
-        console.log(this.props.activeVideo);
+      .then(() => {
+        this.props.updateComments();
         this.setState({
-          comments: [...this.state.comments, response],
           comment: "",
         });
       })

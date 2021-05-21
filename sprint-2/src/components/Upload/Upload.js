@@ -8,6 +8,7 @@ class Upload extends Component {
     modalOpen: false,
   };
 
+  // https://gist.github.com/elitan/5e4cab413dc201e0598ee05287ee4338
   handlePublish = (e) => {
     e.preventDefault();
 

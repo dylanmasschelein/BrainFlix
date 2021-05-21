@@ -44,10 +44,9 @@ class Home extends Component {
           });
         })
         .catch((err) => console.log(err));
+    } else if (prevProps.match.url !== this.props.match.url) {
+      this.getInitialVideo();
     }
-    // else if (prevProps.match.url !== this.props.match.url) {
-    //   this.getInitialVideo();
-    // }
   }
 
   // addNewComment = (e) => {

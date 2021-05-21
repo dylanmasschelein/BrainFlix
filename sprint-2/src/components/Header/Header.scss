@@ -82,6 +82,7 @@
   &__upload {
     @include cta-button;
     @include flex-center;
+    font-size: 0.8rem;
 
     @include tablet {
       margin: 0 1.5rem;

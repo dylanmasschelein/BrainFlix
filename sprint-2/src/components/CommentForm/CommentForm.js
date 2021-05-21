@@ -1,4 +1,4 @@
-import "./Comment.scss";
+import "./CommentForm.scss";
 import avatar from "../../assets/Images/Icons/Mohan-muruge.jpg";
 
 function Comment({ comments, addNewComment }) {

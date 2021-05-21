@@ -3,7 +3,7 @@ import CommentCard from "../CommentCard/CommentCard";
 import { formatDate } from "../Utilities/DateUtility";
 
 function CommentList(props) {
-  const videos = props.activeComments;
+  const videos = props.comments;
 
   return (
     <section>

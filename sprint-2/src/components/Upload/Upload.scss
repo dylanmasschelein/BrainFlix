@@ -4,6 +4,11 @@
 .wrapper {
   @include flex-direction(column);
   justify-content: flex-start;
+
+  @include desktop {
+    margin-bottom: 8rem;
+    border-bottom: $divider-border;
+  }
 }
 
 .upload {
@@ -22,8 +27,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1080px;
-    height: 80%;
+    width: 100vw;
+    height: 50vh;
 
     background-color: white;
     padding: 6rem;
@@ -45,8 +50,10 @@
   &__video {
     padding: 1.5rem 0 2rem 0;
     border-top: $divider-border;
+    margin-top: 0.75rem;
 
     @include tablet {
+      margin: 0;
       padding: 3rem 0 2rem 0;
       border-bottom: $divider-border;
     }
@@ -82,6 +89,7 @@
       width: 21.5rem;
       height: 11.7rem;
       margin-bottom: 2.5rem;
+      margin-right: 1.5rem;
     }
   }
 }

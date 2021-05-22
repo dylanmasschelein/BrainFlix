@@ -10,10 +10,6 @@ class RecommendedVideos extends Component {
     recommendedVideos: [],
   };
 
-  handleScroll = () => {
-    window.scrollTo(0, 0);
-  };
-
   getRecommendedVideoList() {
     axios
       .get(`${URL}/videos?api_key=${API_KEY}`)

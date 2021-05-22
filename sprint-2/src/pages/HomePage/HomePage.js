@@ -13,40 +13,46 @@ class Home extends Component {
     activeVideo: null,
   };
 
-  //short circut component did mount request with the initial video and if it is changing then display that video
+  handleScroll = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   updateComments = () => {
+    const { id } = this.state.activeVideo;
+    axios.get(`${URL}/videos/${id}?api_key=${API_KEY}`).then((response) => {
+      this.setState({
+        activeVideo: response.data,
+      });
+    });
+  };
+
+  handleDelete = (commentId) => {
+    const { id } = this.state.activeVideo;
+    console.log(id);
     axios
-      .get(`${URL}/videos/${this.state.activeVideo.id}?api_key=${API_KEY}`)
-      .then((response) => {
-        this.setState({
-          activeVideo: response.data,
-        });
+      .delete(
+        `${URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}
+    `
+      )
+      .then(() => {
+        this.updateComments();
       });
   };
 
   getInitialVideo() {
-    if (this.props.match.params.videoId === undefined) {
-      axios
-        .get(`${URL}/videos/1af0jruup5gu?api_key=${API_KEY}`)
-        .then((response) => {
-          this.setState({
-            activeVideo: response.data,
-          });
-        })
-        .catch((err) => console.error(err));
-    } else {
-      axios
-        .get(
-          `${URL}/videos/${this.props.match.params.videoId}?api_key=${API_KEY}`
-        )
-        .then((response) => {
-          this.setState({
-            activeVideo: response.data,
-          });
+    const { videoId } = this.props.match.params;
+    axios
+      .get(
+        `${URL}/videos/${
+          videoId === undefined ? "1af0jruup5gu" : videoId
+        }?api_key=${API_KEY}`
+      )
+      .then((response) => {
+        this.setState({
+          activeVideo: response.data,
         });
-    }
-    //ADD CONDITIONAL IN HERE TO RENDER THE INITIA;L VIDEO, OR WHATEVER MATCH.PARAM.VIDEO ID IS IN THE URL
+      })
+      .catch((err) => console.error(err));
   }
 
   componentDidMount() {
@@ -58,23 +64,20 @@ class Home extends Component {
     const previousVideoId = prevProps.match.params.videoId;
     if (previousVideoId !== videoId && videoId) {
       axios
-        .get(
-          `${URL}/videos/${this.props.match.params.videoId}?api_key=${API_KEY}`
-        )
+        .get(`${URL}/videos/${videoId}?api_key=${API_KEY}`)
         .then((response) => {
           this.setState({
             activeVideo: response.data,
           });
+          this.handleScroll();
         })
         .catch((err) => console.log(err));
     } else if (prevProps.match.url !== this.props.match.url) {
       this.getInitialVideo();
     }
   }
-  //with router -- look into
 
   render() {
-    console.log(this.props.match.params.videoId);
     if (this.state.activeVideo === null) {
       return <h1>something</h1>;
     }
@@ -87,6 +90,7 @@ class Home extends Component {
             <CommentSection
               updateComments={this.updateComments}
               activeVideo={this.state.activeVideo}
+              handleDelete={this.handleDelete}
             />
           </div>
           <div className='content-recommendation-container'>

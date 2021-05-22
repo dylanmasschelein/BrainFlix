@@ -6,6 +6,7 @@
   border-bottom: $divider-border;
   padding: 1.5rem 0;
   margin: 0 1rem;
+  width: 100%;
 
   @include tablet {
     margin: 0 1.5rem;
@@ -35,10 +36,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-
-    @include desktop {
-      flex-grow: unset;
-    }
   }
 
   &__header {
@@ -48,6 +45,16 @@
     @include tablet {
       justify-content: initial;
     }
+  }
+
+  &__heading-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   &__username {

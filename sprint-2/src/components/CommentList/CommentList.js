@@ -11,9 +11,11 @@ function CommentList(props) {
         <article key={video.id} className='comment-card'>
           <div className='comment-card__avatar'></div>
           <CommentCard
+            id={video.id}
             name={video.name}
             comment={video.comment}
             timestamp={formatDate(video.timestamp)}
+            handleDelete={props.handleDelete}
           />
         </article>
       ))}

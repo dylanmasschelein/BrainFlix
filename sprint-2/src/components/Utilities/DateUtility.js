@@ -51,3 +51,7 @@ export function formatDate(timestamp) {
     return `${secondsSincePosting} seconds ago`;
   }
 }
+
+export function sortedComments(arr) {
+  return arr.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+}

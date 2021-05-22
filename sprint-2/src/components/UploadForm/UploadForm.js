@@ -41,8 +41,16 @@ class UploadForm extends Component {
             onChange={this.handleInput}
           ></textarea>
           <div className='upload-video__container'>
-            <input type='submit' className='upload-video__publish' />
-            <input type='cancel' className='upload-video__cancel' />
+            <input
+              type='submit'
+              value='PUBLISH'
+              className='upload-video__publish'
+            />
+            <input
+              type='cancel'
+              Value='CANCEL'
+              className='upload-video__cancel'
+            />
           </div>
         </form>
       </>

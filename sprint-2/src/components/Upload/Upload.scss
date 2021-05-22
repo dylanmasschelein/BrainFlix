@@ -20,31 +20,63 @@
     flex-flow: row wrap;
   }
 
+  &__modal-container {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+  }
+
   &__modal {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 50vh;
 
-    background-color: white;
-    padding: 6rem;
+    width: 90vw;
+    height: 30vh;
+    color: white;
+    background-color: $primary-cta;
     border-radius: $border-radius;
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
+    padding: 2rem;
 
+    @include tablet {
+      width: 50vw;
+      height: 40vh;
+    }
+    @include desktop {
+      padding: 4rem;
+      width: 50vw;
+      height: 50vh;
+    }
     &--hidden {
       display: none;
     }
   }
 
+  &__redirect {
+    @include flex-justify(space-between, flex-end);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    margin-right: 5rem;
+    @include tablet {
+      margin-top: 2rem;
+    }
+    @include desktop {
+      font-size: 3rem;
+    }
+  }
+
   &__prompt {
-    margin-top: 5rem;
-    font-size: 1rem;
-    font-weight: 600;
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+    @include desktop {
+      margin-top: 5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
   }
 
   &__video {

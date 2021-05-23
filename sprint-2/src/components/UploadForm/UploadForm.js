@@ -7,6 +7,13 @@ class UploadForm extends Component {
     comment: "",
   };
 
+  isFormValid = () => {
+    if (this.state.title === "" || this.state.comment === "") {
+      return false;
+    }
+    return true;
+  };
+
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -44,12 +51,18 @@ class UploadForm extends Component {
             <input
               type='submit'
               value='PUBLISH'
-              className='upload-video__publish'
+              className={
+                this.isFormValid()
+                  ? "upload-video__publish"
+                  : "upload-video__publish--invalid"
+              }
+              disabled={!this.isFormValid()}
             />
             <input
               type='cancel'
-              Value='CANCEL'
+              value='CANCEL'
               className='upload-video__cancel'
+              onClick={this.props.handlePublish}
             />
           </div>
         </form>

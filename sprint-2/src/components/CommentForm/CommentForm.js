@@ -9,13 +9,23 @@ class CommentForm extends Component {
     comment: "",
   };
 
+  isCommentValid = () => {
+    if (this.state.comment.length < 1) {
+      return false;
+    }
+
+    return true;
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
+    const { name, comment } = this.state;
+    const { id } = this.props.activeVideo;
     axios
-      .post(
-        `${URL}/videos/${this.props.activeVideo.id}/comments?api_key=${API_KEY}`,
-        { name: this.state.name, comment: this.state.comment }
-      )
+      .post(`${URL}/videos/${id}/comments?api_key=${API_KEY}`, {
+        name: name,
+        comment: comment,
+      })
       .then(() => {
         this.props.updateComments();
         this.setState({
@@ -50,7 +60,16 @@ class CommentForm extends Component {
             onChange={this.handleInput}
           ></textarea>
         </div>
-        <input type='submit' value='COMMENT' className='comment__submit' />
+        <input
+          type='submit'
+          value='COMMENT'
+          className={
+            this.isCommentValid()
+              ? "comment__submit"
+              : "comment__submit--invalid"
+          }
+          disabled={!this.isCommentValid()}
+        />
       </form>
     );
   }

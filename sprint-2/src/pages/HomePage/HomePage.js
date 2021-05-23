@@ -28,12 +28,8 @@ class Home extends Component {
 
   handleDelete = (commentId) => {
     const { id } = this.state.activeVideo;
-    console.log(id);
     axios
-      .delete(
-        `${URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}
-    `
-      )
+      .delete(`${URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`)
       .then(() => {
         this.updateComments();
       });
@@ -79,7 +75,7 @@ class Home extends Component {
 
   render() {
     if (this.state.activeVideo === null) {
-      return <h1>something</h1>;
+      return <h1>Loading . . .</h1>;
     }
     return (
       <div>

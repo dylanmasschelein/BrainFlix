@@ -36,7 +36,6 @@ class RecommendedVideos extends Component {
     return (
       <section className='recommendation'>
         <h4 className='recommendation__title'>NEXT VIDEO</h4>
-
         {this.state.recommendedVideos.map((video) => (
           <RecommendedCard
             key={video.id}

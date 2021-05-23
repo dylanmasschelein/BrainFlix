@@ -2,10 +2,11 @@ import CommentForm from "../CommentForm/CommentForm";
 import "../CommentForm/CommentForm.scss";
 import avatar from "../../assets/Images/Icons/Mohan-muruge.jpg";
 
-function Comment({ activeVideo, updateComments }) {
+function CommentSubmit({ activeVideo, updateComments }) {
+  const commentLength = activeVideo.comments.length;
   return (
     <section className='comment'>
-      <h3 className='comment__count'>Comments</h3>
+      <h3 className='comment__count'>{commentLength} Comments</h3>
       <div className='comment__wrapper'>
         <img
           src={avatar}
@@ -21,4 +22,4 @@ function Comment({ activeVideo, updateComments }) {
   );
 }
 
-export default Comment;
+export default CommentSubmit;

@@ -1,27 +1,36 @@
 import { Component } from "react";
 import Form from "../UploadForm/UploadForm";
 import "./Upload.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPeace } from "@fortawesome/free-solid-svg-icons";
 import Thumbnail from "../../assets/Images/Icons/Upload-video-preview.jpg";
+import ModalWindow from "../ModalWindow/ModalWindow";
 
 class Upload extends Component {
   state = {
     modalOpen: false,
+    text: "",
   };
 
   handlePublish = (e) => {
     e.preventDefault();
+    // Checking to see which video was clicked and printing text accordingly
+    const buttonClicked =
+      e.target.className === "upload-video"
+        ? "Upload Successful!"
+        : "Upload Cancelled. . .";
+
     window.scrollTo({ top: 0, behavior: "smooth" });
+
     const toggle = !this.state.modalOpen ? true : false;
 
     this.setState({
       modalOpen: toggle,
+      text: buttonClicked,
     });
 
     setTimeout(() => {
       this.setState({
-        modalOpen: false,
+        modalOpen: toggle,
+        text: "",
       });
 
       this.props.history.push("/");
@@ -29,22 +38,10 @@ class Upload extends Component {
   };
 
   render() {
-    console.log(window.pageYOffset);
-
     return (
       <section className='upload'>
         <div className='upload__modal-container'>
-          <div
-            className={
-              !this.state.modalOpen ? "upload__modal--hidden" : "upload__modal"
-            }
-          >
-            <h1 className='upload__video'>Upload Successful!</h1>
-            <div className='upload__redirect'>
-              <p className='upload__prompt'>Redirecting you home shortly...</p>
-              <FontAwesomeIcon className='upload__icon' icon={faHandPeace} />
-            </div>
-          </div>
+          {this.state.modalOpen ? <ModalWindow text={this.state.text} /> : ""}
         </div>
         <h1 className='upload__video'>Upload Video</h1>
         <div className='wrapper'>

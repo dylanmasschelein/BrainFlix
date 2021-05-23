@@ -6,7 +6,6 @@
 
   @include desktop {
     @include spacing-reset;
-    // margin-left: 1.5rem;
     flex-grow: 1;
   }
 
@@ -46,11 +45,21 @@
   &__publish {
     @include cta-button;
     margin: 2rem 0 1.5rem 0;
+    cursor: pointer;
 
     @include tablet {
       @include spacing-reset;
       order: 2;
       width: 10rem;
+    }
+
+    &:hover {
+      background: $primary-cta-hover;
+    }
+
+    &--invalid {
+      @extend .upload-video__publish;
+      background: $primary-cta-hover;
     }
   }
 
@@ -59,6 +68,7 @@
     background: white;
     color: $primary-cta;
     text-align: center;
+    cursor: pointer;
 
     @include tablet {
       order: 1;

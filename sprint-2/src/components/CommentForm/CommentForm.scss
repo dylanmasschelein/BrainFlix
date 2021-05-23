@@ -85,8 +85,14 @@
     @include cta-button;
     margin: 0.75rem 0 1.5rem;
     font-size: 1rem;
+    cursor: pointer;
 
     &:hover {
+      background: $primary-cta-hover;
+    }
+
+    &--invalid {
+      @extend .comment__submit;
       background: $primary-cta-hover;
     }
 

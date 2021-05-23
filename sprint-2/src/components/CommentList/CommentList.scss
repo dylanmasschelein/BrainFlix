@@ -6,7 +6,6 @@
   border-bottom: $divider-border;
   padding: 1.5rem 0;
   margin: 0 1rem;
-  width: 100%;
 
   @include tablet {
     margin: 0 1.5rem;
@@ -48,8 +47,8 @@
   }
 
   &__heading-wrapper {
-    display: flex;
-    justify-content: space-between;
+    @include flex-justify(space-between);
+    margin-right: 2.5rem;
   }
 
   &__icon {

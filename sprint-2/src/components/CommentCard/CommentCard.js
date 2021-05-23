@@ -8,7 +8,7 @@ function CommentCard(props) {
       <div className='comment-card__heading-wrapper'>
         <div className='comment-card__header'>
           <h3 className='comment-card__username'>
-            {name ? name : "Anynomous"}
+            {name ? name : "Anonymous"}
           </h3>
           <span className='comment-card__date'>{timestamp}</span>
         </div>

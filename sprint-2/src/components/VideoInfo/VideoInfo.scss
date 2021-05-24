@@ -4,7 +4,6 @@
 .video {
   @include flex-flow(column);
   margin: 0 1rem;
-  
 
   @include tablet {
     margin: 0 1.5rem;
@@ -62,7 +61,7 @@
     border-bottom: $divider-border;
 
     @include tablet {
-     @include spacing-reset;
+      @include spacing-reset;
       border-bottom: none;
     }
   }

@@ -12,7 +12,8 @@ class Upload extends Component {
 
   handlePublish = (e) => {
     e.preventDefault();
-    // Checking to see which video was clicked and printing text accordingly
+
+    // Conditionally applying text based on button selected (cancel/publish)
     const buttonClicked =
       e.target.className === "upload-video"
         ? "Upload Successful!"
@@ -20,6 +21,7 @@ class Upload extends Component {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
+    // Toggle modal window on and off
     const toggle = !this.state.modalOpen ? true : false;
 
     this.setState({

@@ -3,6 +3,7 @@ import likesIcon from "../../assets/Images/Icons/Icon-likes.svg";
 
 function Video(props) {
   const { title, channel, timestamp, views, likes, description } = props;
+  
   return (
     <>
       <h1 className='video__title'>{title}</h1>

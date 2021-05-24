@@ -1,0 +1,35 @@
+@use '../../partials/mixins.scss' as *;
+@use '../../partials/variables.scss' as *;
+
+.modal {
+  @include modal-window;
+
+  &__title {
+    @include upload-title;
+  }
+
+  &__redirect {
+    @include flex-justify(space-between, flex-end);
+  }
+
+  &__prompt {
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+    @include desktop {
+      margin-top: 5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+    margin-right: 5rem;
+    @include tablet {
+      margin-top: 2rem;
+    }
+    @include desktop {
+      font-size: 3rem;
+    }
+  }
+}

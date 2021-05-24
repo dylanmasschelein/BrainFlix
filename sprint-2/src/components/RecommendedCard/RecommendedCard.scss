@@ -23,9 +23,8 @@
   }
 
   &__info-container {
-    display: flex;
+    @include flex-justify(space-around);
     flex-direction: column;
-    justify-content: space-around;
   }
 
   &__video-title {

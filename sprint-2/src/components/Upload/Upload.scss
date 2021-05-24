@@ -26,49 +26,8 @@
     left: 50%;
   }
 
-  &__modal {
-    @include modal-window;
-  }
-
-  &__redirect {
-    @include flex-justify(space-between, flex-end);
-  }
-
-  &__icon {
-    font-size: 2rem;
-    margin-right: 5rem;
-    @include tablet {
-      margin-top: 2rem;
-    }
-    @include desktop {
-      font-size: 3rem;
-    }
-  }
-
-  &__prompt {
-    line-height: 1.5rem;
-    font-size: 1.25rem;
-    @include desktop {
-      margin-top: 5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-  }
-
   &__video {
-    padding: 1.5rem 0 2rem 0;
-    border-top: $divider-border;
-    margin-top: 0.75rem;
-
-    @include tablet {
-      margin: 0;
-      padding: 3rem 0 2rem 0;
-      border-bottom: $divider-border;
-    }
-
-    @include desktop {
-      width: 100%;
-    }
+    @include upload-title;
   }
 
   &__thumbnail-title {

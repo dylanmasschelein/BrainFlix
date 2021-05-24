@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function RecommendedCards(props) {
   const { id, image, title, channel } = props;
+  
   return (
     <article className='recommendation-card'>
       <Link to={`/${id}`} className='recommendation__link'>

@@ -5,6 +5,7 @@ import CommentSection from "../../components/CommentSection/CommentSection";
 import RecommendedVideos from "../../components/RecommendedVideos/RecommendedVideos";
 import "./HomePage.scss";
 import axios from "axios";
+
 const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
@@ -37,6 +38,7 @@ class Home extends Component {
 
   getInitialVideo() {
     const { videoId } = this.props.match.params;
+    // Conditionally render initial video based on page refresh or home click
     axios
       .get(
         `${URL}/videos/${
@@ -58,6 +60,8 @@ class Home extends Component {
   componentDidUpdate(prevProps) {
     const { videoId } = this.props.match.params;
     const previousVideoId = prevProps.match.params.videoId;
+
+    // Conditionally render video based on video selection or home click
     if (previousVideoId !== videoId && videoId) {
       axios
         .get(`${URL}/videos/${videoId}?api_key=${API_KEY}`)

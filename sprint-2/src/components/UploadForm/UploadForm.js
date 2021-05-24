@@ -22,8 +22,8 @@ class UploadForm extends Component {
   };
 
   render() {
+
     return (
-      <>
         <form onSubmit={this.props.handlePublish} className='upload-video'>
           <label htmlFor='title' className='upload-video__label'>
             TITLE YOUR VIDEO
@@ -66,7 +66,6 @@ class UploadForm extends Component {
             />
           </div>
         </form>
-      </>
     );
   }
 }

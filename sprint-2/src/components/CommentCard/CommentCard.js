@@ -3,6 +3,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function CommentCard(props) {
   const { name, timestamp, comment, handleDelete, id } = props;
+  
   return (
     <div className='comment-card__info-container'>
       <div className='comment-card__heading-wrapper'>

@@ -32,8 +32,7 @@
   }
 
   &__info-container {
-    display: flex;
-    flex-direction: column;
+    @include flex-direction(column);
     flex-grow: 1;
   }
 
@@ -48,7 +47,14 @@
 
   &__heading-wrapper {
     @include flex-justify(space-between);
-    margin-right: 2.5rem;
+
+    @include tablet {
+      margin-right: 2.5rem;
+    }
+
+    @include desktop {
+      margin-right: 0rem;
+    }
   }
 
   &__icon {

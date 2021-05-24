@@ -11,6 +11,7 @@ class RecommendedVideos extends Component {
   };
 
   getRecommendedVideoList() {
+    // Filtering active video out of recommended video list
     axios
       .get(`${URL}/videos?api_key=${API_KEY}`)
       .then((response) => {

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+
 const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
@@ -13,7 +14,6 @@ class CommentForm extends Component {
     if (this.state.comment.length < 1) {
       return false;
     }
-
     return true;
   };
 
@@ -21,6 +21,8 @@ class CommentForm extends Component {
     e.preventDefault();
     const { name, comment } = this.state;
     const { id } = this.props.activeVideo;
+
+    // Adding new comment to active video comment list and clearing field
     axios
       .post(`${URL}/videos/${id}/comments?api_key=${API_KEY}`, {
         name: name,

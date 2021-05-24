@@ -4,6 +4,7 @@ import avatar from "../../assets/Images/Icons/Mohan-muruge.jpg";
 
 function CommentSubmit({ activeVideo, updateComments }) {
   const commentLength = activeVideo.comments.length;
+  
   return (
     <section className='comment'>
       <h3 className='comment__count'>{commentLength} Comments</h3>

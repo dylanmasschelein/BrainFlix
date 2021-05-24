@@ -100,14 +100,30 @@
   }
 }
 
+@mixin upload-title {
+  padding: 1.5rem 0 2rem 0;
+  border-top: $divider-border;
+  margin-top: 0.75rem;
+
+  @include tablet {
+    margin: 0;
+    padding: 3rem 0 2rem 0;
+    border-bottom: $divider-border;
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+}
+
 @mixin tablet {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1080px) {
+  @media screen and (min-width: $desktop) {
     @content;
   }
 }

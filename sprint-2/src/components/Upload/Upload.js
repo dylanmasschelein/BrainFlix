@@ -13,7 +13,7 @@ class Upload extends Component {
   handlePublish = (e) => {
     e.preventDefault();
 
-    // Conditionally applying text based on button selected (cancel/publish)
+    // Conditionally applying text based on button selection (cancel/publish)
     const buttonClicked =
       e.target.className === "upload-video"
         ? "Upload Successful!"

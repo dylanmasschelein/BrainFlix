@@ -1,0 +1,47 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.recommendation-card {
+  display: flex;
+  margin-bottom: 1.5rem;
+  height: 4.375rem;
+
+  @include tablet {
+    width: 50%;
+  }
+
+  @include desktop {
+    width: unset;
+  }
+
+  &__video {
+    width: 7.5rem;
+    height: 4.375rem;
+    margin-right: 1rem;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  &__info-container {
+    @include flex-justify(space-around);
+    flex-direction: column;
+  }
+
+  &__video-title {
+    @include spacing-reset;
+    font-weight: 700;
+    cursor: pointer;
+
+    @include tablet {
+      padding-right: 3rem;
+    }
+
+    @include desktop {
+      padding-right: 0;
+    }
+  }
+
+  &__user {
+    font-weight: 500;
+  }
+}

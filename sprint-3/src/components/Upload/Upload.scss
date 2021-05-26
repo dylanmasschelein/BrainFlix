@@ -1,0 +1,62 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.wrapper {
+  @include flex-direction(column);
+  justify-content: flex-start;
+
+  @include desktop {
+    margin-bottom: 8rem;
+    border-bottom: $divider-border;
+  }
+}
+
+.upload {
+  @include flex-direction(column);
+  padding: 0 1rem;
+
+  @include desktop {
+    @include zero-auto;
+    flex-flow: row wrap;
+  }
+
+  &__modal-container {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+  }
+
+  &__video {
+    @include upload-title;
+  }
+
+  &__thumbnail-title {
+    @include label-styles;
+
+    @include tablet {
+      padding-top: 2.5rem;
+    }
+
+    @include desktop {
+      padding-top: 1.5rem;
+    }
+  }
+
+  &__thumbnail {
+    width: 18rem;
+    height: 9.562rem;
+    border-radius: $border-radius;
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      margin-bottom: 1rem;
+    }
+
+    @include desktop {
+      width: 21.5rem;
+      height: 11.7rem;
+      margin-bottom: 2.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+}

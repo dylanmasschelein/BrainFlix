@@ -1,0 +1,88 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.comment-card {
+  display: flex;
+  border-bottom: $divider-border;
+  padding: 1.5rem 0;
+  margin: 0 1rem;
+
+  @include tablet {
+    margin: 0 1.5rem;
+  }
+
+  @include desktop {
+    margin: 0 2.5rem 0 0;
+    padding-right: 2.5rem;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__avatar {
+    min-height: 3rem;
+    min-width: 3rem;
+    max-height: 3rem;
+    max-width: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: $color-mercury;
+  }
+
+  &__info-container {
+    @include flex-direction(column);
+    flex-grow: 1;
+  }
+
+  &__header {
+    @include flex-justify(space-between, center);
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      justify-content: initial;
+    }
+  }
+
+  &__heading-wrapper {
+    @include flex-justify(space-between);
+
+    @include tablet {
+      margin-right: 2.5rem;
+    }
+
+    @include desktop {
+      margin-right: 0rem;
+    }
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  &__username {
+    @include spacing-reset;
+    margin-right: 1rem;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  &__date {
+    color: $color-silver;
+    font-size: 0.875rem;
+  }
+
+  &__description {
+    @include tablet {
+      padding-right: 2rem;
+    }
+
+    @include desktop {
+      padding-right: 0;
+    }
+  }
+}

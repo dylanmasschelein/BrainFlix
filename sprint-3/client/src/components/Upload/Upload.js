@@ -3,6 +3,8 @@ import Form from "../UploadForm/UploadForm";
 import "./Upload.scss";
 import Thumbnail from "../../assets/Images/Icons/Upload-video-preview.jpg";
 import ModalWindow from "../ModalWindow/ModalWindow";
+import axios from "axios";
+const SERVER = "http://localhost:8080";
 
 class Upload extends Component {
   state = {
@@ -13,6 +15,7 @@ class Upload extends Component {
   handlePublish = (e) => {
     e.preventDefault();
 
+    axios.post(`${SERVER}/videos`);
     // Conditionally applying text based on button selection (cancel/publish)
     const buttonClicked =
       e.target.className === "upload-video"

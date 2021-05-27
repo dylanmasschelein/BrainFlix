@@ -9,6 +9,7 @@ import axios from "axios";
 const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
 
+const SERVER = "http://localhost:8080";
 class Home extends Component {
   state = {
     activeVideo: null,
@@ -41,9 +42,7 @@ class Home extends Component {
     // Conditionally render initial video based on page refresh or home click
     axios
       .get(
-        `${URL}/videos/${
-          videoId === undefined ? "1af0jruup5gu" : videoId
-        }?api_key=${API_KEY}`
+        `${SERVER}/videos/${videoId === undefined ? "1af0jruup5gu" : videoId}`
       )
       .then((response) => {
         this.setState({
@@ -64,7 +63,7 @@ class Home extends Component {
     // Conditionally render video based on video selection or home click
     if (previousVideoId !== videoId && videoId) {
       axios
-        .get(`${URL}/videos/${videoId}?api_key=${API_KEY}`)
+        .get(`${SERVER}/videos/${videoId}`)
         .then((response) => {
           this.setState({
             activeVideo: response.data,

@@ -4,11 +4,11 @@ import { Component } from "react";
 class UploadForm extends Component {
   state = {
     title: "",
-    comment: "",
+    description: "",
   };
 
   isFormValid = () => {
-    if (this.state.title === "" || this.state.comment === "") {
+    if (this.state.title === "" || this.state.description === "") {
       return false;
     }
     return true;
@@ -43,7 +43,7 @@ class UploadForm extends Component {
           placeholder='Add a description of your video'
           className='upload-video__input upload-video__input--description'
           name='comment'
-          value={this.state.comment}
+          value={this.state.description}
           onChange={this.handleInput}
         ></textarea>
         <div className='upload-video__container'>

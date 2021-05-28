@@ -14,8 +14,13 @@ class Upload extends Component {
 
   handlePublish = (e) => {
     e.preventDefault();
-
-    axios.post(`${SERVER}/videos`);
+    // axios
+    //   .post(`${SERVER}/videos`, {
+    //     title: title,
+    //     description: desc,
+    //   })
+    //   .then(() => console.log("Post Successful"))
+    //   .catch((err) => console.error(err));
     // Conditionally applying text based on button selection (cancel/publish)
     const buttonClicked =
       e.target.className === "upload-video"

@@ -1,10 +1,24 @@
 import "./UploadForm.scss";
 import { Component } from "react";
+import axios from "axios";
+
+const SERVER = "http://localhost:8080";
 
 class UploadForm extends Component {
   state = {
     title: "",
     description: "",
+  };
+
+  handleVideoAdd = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${SERVER}/videos`, {
+        title: this.state.title,
+        description: this.state.description,
+      })
+      .then(() => console.log("Post Successful"))
+      .catch((err) => console.error(err));
   };
 
   isFormValid = () => {
@@ -23,7 +37,13 @@ class UploadForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handlePublish} className='upload-video'>
+      <form
+        onSubmit={() => {
+          this.props.handlePublish();
+          this.handleVideoAdd();
+        }}
+        className='upload-video'
+      >
         <label htmlFor='title' className='upload-video__label'>
           TITLE YOUR VIDEO
         </label>
@@ -42,7 +62,7 @@ class UploadForm extends Component {
           type='text'
           placeholder='Add a description of your video'
           className='upload-video__input upload-video__input--description'
-          name='comment'
+          name='description'
           value={this.state.description}
           onChange={this.handleInput}
         ></textarea>

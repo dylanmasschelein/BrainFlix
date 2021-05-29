@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
 const URL = `https://project-2-api.herokuapp.com`;
-
+const SERVER = "http://localhost:8080";
 class CommentForm extends Component {
   state = {
     name: "Active Freddy",
@@ -24,7 +24,7 @@ class CommentForm extends Component {
 
     // Adding new comment to active video comment list and clearing field
     axios
-      .post(`${URL}/videos/${id}/comments?api_key=${API_KEY}`, {
+      .post(`${SERVER}/videos/${id}/comments`, {
         name: name,
         comment: comment,
       })

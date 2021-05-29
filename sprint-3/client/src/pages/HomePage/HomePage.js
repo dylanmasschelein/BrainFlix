@@ -21,7 +21,7 @@ class Home extends Component {
 
   updateComments = () => {
     const { id } = this.state.activeVideo;
-    axios.get(`${URL}/videos/${id}?api_key=${API_KEY}`).then((response) => {
+    axios.get(`${SERVER}/videos/${id}`).then((response) => {
       this.setState({
         activeVideo: response.data,
       });

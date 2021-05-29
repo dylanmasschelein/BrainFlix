@@ -6,9 +6,6 @@ import RecommendedVideos from "../../components/RecommendedVideos/RecommendedVid
 import "./HomePage.scss";
 import axios from "axios";
 
-const API_KEY = "2ed38889-b920-43b6-ad1f-163b18a7f14e";
-const URL = `https://project-2-api.herokuapp.com`;
-
 const SERVER = "http://localhost:8080";
 class Home extends Component {
   state = {
@@ -23,7 +20,6 @@ class Home extends Component {
     const { id } = this.state.activeVideo;
 
     axios.get(`${SERVER}/videos/${id}`).then((response) => {
-      console.log("res updateComments", response.data);
       this.setState({
         activeVideo: response.data,
       });
@@ -33,6 +29,13 @@ class Home extends Component {
   handleDelete = (commentId) => {
     const { id } = this.state.activeVideo;
     axios.delete(`${SERVER}/videos/${id}/comments/${commentId}`).then(() => {
+      this.updateComments();
+    });
+  };
+
+  handleLike = (commentId) => {
+    const { id } = this.state.activeVideo;
+    axios.put(`${SERVER}/videos/${id}/comments/${commentId}/like`).then(() => {
       this.updateComments();
     });
   };

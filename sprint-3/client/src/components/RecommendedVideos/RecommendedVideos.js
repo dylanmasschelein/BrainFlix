@@ -4,7 +4,7 @@ import { Component } from "react";
 import axios from "axios";
 const API_KEY = "d2dce711-25b7-46e4-ab56-87aa59f86dbf";
 const URL = `https://project-2-api.herokuapp.com`;
-
+const SERVER = "http://localhost:8080";
 class RecommendedVideos extends Component {
   state = {
     recommendedVideos: [],
@@ -13,7 +13,7 @@ class RecommendedVideos extends Component {
   getRecommendedVideoList() {
     // Filtering active video out of recommended video list
     axios
-      .get(`${URL}/videos?api_key=${API_KEY}`)
+      .get(`${SERVER}/videos`)
       .then((response) => {
         const recVid = response.data.filter(
           (video) => video.id !== this.props.activeVideo.id

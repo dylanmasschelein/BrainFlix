@@ -12,6 +12,8 @@ class UploadForm extends Component {
 
   handleVideoAdd = (e) => {
     e.preventDefault();
+    console.log("Handling video add");
+    console.log(this.state.title, this.state.description);
     axios
       .post(`${SERVER}/videos`, {
         title: this.state.title,
@@ -38,9 +40,9 @@ class UploadForm extends Component {
   render() {
     return (
       <form
-        onSubmit={() => {
-          this.props.handlePublish();
-          this.handleVideoAdd();
+        onSubmit={(e) => {
+          this.handleVideoAdd(e);
+          this.props.handlePublish(e);
         }}
         className='upload-video'
       >

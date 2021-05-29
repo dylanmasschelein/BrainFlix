@@ -93,7 +93,6 @@
 
     &--invalid {
       @extend .comment__submit;
-      background: $primary-cta-hover;
     }
 
     @include tablet {

@@ -12,8 +12,6 @@ class UploadForm extends Component {
 
   handleVideoAdd = (e) => {
     e.preventDefault();
-    console.log("Handling video add");
-    console.log(this.state.title, this.state.description);
     axios
       .post(`${SERVER}/videos`, {
         title: this.state.title,

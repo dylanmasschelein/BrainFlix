@@ -1,10 +1,7 @@
 import { Component } from "react";
 import Form from "../UploadForm/UploadForm";
 import "./Upload.scss";
-// import Thumbnail from "/Upload-video-preview.jpg";
 import ModalWindow from "../ModalWindow/ModalWindow";
-import axios from "axios";
-const SERVER = "http://localhost:8080";
 
 class Upload extends Component {
   state = {
@@ -13,7 +10,6 @@ class Upload extends Component {
   };
 
   handlePublish = (e) => {
-    console.log(e);
     e.preventDefault();
     const buttonClicked =
       e.target.className === "upload-video"

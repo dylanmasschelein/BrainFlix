@@ -57,9 +57,19 @@
     }
   }
 
+  &__icon-container {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+  }
+
   &__icon {
     font-size: 1.5rem;
     cursor: pointer;
+
+    &--trash {
+      margin-right: 1rem;
+    }
   }
 
   &__username {

@@ -3,7 +3,12 @@ import CommentList from "../CommentList/CommentList";
 import { sortedComments } from "../Utilities/DateUtility";
 import CommentSubmit from "../CommentSubmit/CommentSubmit";
 
-function CommentSection({ activeVideo, updateComments, handleDelete }) {
+function CommentSection({
+  activeVideo,
+  updateComments,
+  handleDelete,
+  handleLike,
+}) {
   return (
     <div>
       <CommentSubmit
@@ -13,6 +18,7 @@ function CommentSection({ activeVideo, updateComments, handleDelete }) {
       <CommentList
         comments={sortedComments(activeVideo.comments)}
         handleDelete={handleDelete}
+        handleLike={handleLike}
       />
     </div>
   );

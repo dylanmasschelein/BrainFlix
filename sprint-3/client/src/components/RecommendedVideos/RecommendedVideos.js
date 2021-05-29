@@ -2,8 +2,7 @@ import "./RecommendedVideos.scss";
 import RecommendedCard from "../RecommendedCard/RecommendedCard";
 import { Component } from "react";
 import axios from "axios";
-const API_KEY = "d2dce711-25b7-46e4-ab56-87aa59f86dbf";
-const URL = `https://project-2-api.herokuapp.com`;
+
 const SERVER = "http://localhost:8080";
 class RecommendedVideos extends Component {
   state = {

@@ -21,7 +21,9 @@ class Home extends Component {
 
   updateComments = () => {
     const { id } = this.state.activeVideo;
+
     axios.get(`${SERVER}/videos/${id}`).then((response) => {
+      console.log("res updateComments", response.data);
       this.setState({
         activeVideo: response.data,
       });
@@ -30,11 +32,9 @@ class Home extends Component {
 
   handleDelete = (commentId) => {
     const { id } = this.state.activeVideo;
-    axios
-      .delete(`${URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`)
-      .then(() => {
-        this.updateComments();
-      });
+    axios.delete(`${SERVER}/videos/${id}/comments/${commentId}`).then(() => {
+      this.updateComments();
+    });
   };
 
   getInitialVideo() {
@@ -90,6 +90,7 @@ class Home extends Component {
               updateComments={this.updateComments}
               activeVideo={this.state.activeVideo}
               handleDelete={this.handleDelete}
+              handleLike={this.handleLike}
             />
           </div>
           <div className='content-recommendation-container'>

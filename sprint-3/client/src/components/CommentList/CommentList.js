@@ -17,6 +17,7 @@ function CommentList(props) {
             timestamp={formatDate(video.timestamp)}
             handleDelete={props.handleDelete}
             handleLike={props.handleLike}
+            likes={video.likes}
           />
         </article>
       ))}

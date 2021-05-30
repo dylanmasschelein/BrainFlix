@@ -73,7 +73,7 @@ class Home extends Component {
           });
           this.handleScroll();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     } else if (prevProps.match.url !== this.props.match.url) {
       this.getInitialVideo();
     }

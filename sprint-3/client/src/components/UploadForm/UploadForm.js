@@ -2,8 +2,6 @@ import "./UploadForm.scss";
 import { Component } from "react";
 import axios from "axios";
 
-const SERVER = "http://localhost:8080";
-
 class UploadForm extends Component {
   state = {
     title: "",
@@ -13,7 +11,7 @@ class UploadForm extends Component {
   handleVideoAdd = (e) => {
     e.preventDefault();
     axios
-      .post(`${SERVER}/videos`, {
+      .post(`${process.env.REACT_APP_SERVER}/videos`, {
         title: this.state.title,
         description: this.state.description,
       })

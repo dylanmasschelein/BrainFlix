@@ -3,7 +3,6 @@ import RecommendedCard from "../RecommendedCard/RecommendedCard";
 import { Component } from "react";
 import axios from "axios";
 
-const SERVER = "http://localhost:8080";
 class RecommendedVideos extends Component {
   state = {
     recommendedVideos: [],
@@ -12,7 +11,7 @@ class RecommendedVideos extends Component {
   getRecommendedVideoList() {
     // Filtering active video out of recommended video list
     axios
-      .get(`${SERVER}/videos`)
+      .get(`${process.env.REACT_APP_SERVER}/videos`)
       .then((response) => {
         const recVid = response.data.filter(
           (video) => video.id !== this.props.activeVideo.id

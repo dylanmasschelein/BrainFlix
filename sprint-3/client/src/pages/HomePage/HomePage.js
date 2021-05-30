@@ -6,7 +6,6 @@ import RecommendedVideos from "../../components/RecommendedVideos/RecommendedVid
 import "./HomePage.scss";
 import axios from "axios";
 
-const SERVER = "http://localhost:8080";
 class Home extends Component {
   state = {
     activeVideo: null,
@@ -19,31 +18,41 @@ class Home extends Component {
   updateComments = () => {
     const { id } = this.state.activeVideo;
 
-    axios.get(`${SERVER}/videos/${id}`).then((response) => {
-      this.setState({
-        activeVideo: response.data,
+    axios
+      .get(`${process.env.REACT_APP_SERVER}/videos/${id}`)
+      .then((response) => {
+        this.setState({
+          activeVideo: response.data,
+        });
       });
-    });
   };
 
   handleDelete = (commentId) => {
     const { id } = this.state.activeVideo;
-    axios.delete(`${SERVER}/videos/${id}/comments/${commentId}`).then(() => {
-      this.updateComments();
-    });
+    axios
+      .delete(
+        `${process.env.REACT_APP_SERVER}/videos/${id}/comments/${commentId}`
+      )
+      .then(() => {
+        this.updateComments();
+      });
   };
 
   handleLike = (commentId) => {
     const { id } = this.state.activeVideo;
-    axios.put(`${SERVER}/videos/${id}/comments/${commentId}/like`).then(() => {
-      this.updateComments();
-    });
+    axios
+      .put(
+        `${process.env.REACT_APP_SERVER}/videos/${id}/comments/${commentId}/like`
+      )
+      .then(() => {
+        this.updateComments();
+      });
   };
 
   handleVideoLike = () => {
     console.log("clicked");
     const { id } = this.state.activeVideo;
-    axios.put(`${SERVER}/videos/${id}/like`).then(() => {
+    axios.put(`${process.env.REACT_APP_SERVER}/videos/${id}/like`).then(() => {
       this.updateComments();
     });
   };
@@ -53,7 +62,9 @@ class Home extends Component {
     // Conditionally render initial video based on page refresh or home click
     axios
       .get(
-        `${SERVER}/videos/${videoId === undefined ? "1af0jruup5gu" : videoId}`
+        `${process.env.REACT_APP_SERVER}/videos/${
+          videoId === undefined ? "1af0jruup5gu" : videoId
+        }`
       )
       .then((response) => {
         this.setState({
@@ -74,7 +85,7 @@ class Home extends Component {
     // Conditionally render video based on video selection or home click
     if (previousVideoId !== videoId && videoId) {
       axios
-        .get(`${SERVER}/videos/${videoId}`)
+        .get(`${process.env.REACT_APP_SERVER}/videos/${videoId}`)
         .then((response) => {
           this.setState({
             activeVideo: response.data,
@@ -88,6 +99,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(process.env);
     if (this.state.activeVideo === null) {
       return <h1>Loading . . .</h1>;
     }

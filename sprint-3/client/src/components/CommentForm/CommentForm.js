@@ -1,7 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
 
-const SERVER = "http://localhost:8080";
 class CommentForm extends Component {
   state = {
     name: "Active Freddy",
@@ -22,7 +21,7 @@ class CommentForm extends Component {
 
     // Adding new comment to active video comment list and clearing field
     axios
-      .post(`${SERVER}/videos/${id}/comments`, {
+      .post(`${process.env.REACT_APP_SERVER}/videos/${id}/comments`, {
         name: name,
         comment: comment,
       })

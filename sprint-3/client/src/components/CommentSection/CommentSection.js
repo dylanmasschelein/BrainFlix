@@ -7,7 +7,7 @@ function CommentSection({
   activeVideo,
   updateComments,
   handleDelete,
-  handleLike,
+  handleCommentLike,
 }) {
   return (
     <div>
@@ -18,7 +18,7 @@ function CommentSection({
       <CommentList
         comments={sortedComments(activeVideo.comments)}
         handleDelete={handleDelete}
-        handleLike={handleLike}
+        handleCommentLike={handleCommentLike}
       />
     </div>
   );

@@ -16,7 +16,7 @@ function CommentList(props) {
             comment={video.comment}
             timestamp={formatDate(video.timestamp)}
             handleDelete={props.handleDelete}
-            handleLike={props.handleLike}
+            handleCommentLike={props.handleCommentLike}
             likes={video.likes}
           />
         </article>

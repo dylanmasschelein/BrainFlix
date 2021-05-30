@@ -17,7 +17,6 @@ class Home extends Component {
 
   updateComments = () => {
     const { id } = this.state.activeVideo;
-
     axios
       .get(`${process.env.REACT_APP_SERVER}/videos/${id}`)
       .then((response) => {
@@ -35,10 +34,11 @@ class Home extends Component {
       )
       .then(() => {
         this.updateComments();
-      });
+      })
+      .catch((err) => console.error(err));
   };
 
-  handleLike = (commentId) => {
+  handleCommentLike = (commentId) => {
     const { id } = this.state.activeVideo;
     axios
       .put(
@@ -46,15 +46,19 @@ class Home extends Component {
       )
       .then(() => {
         this.updateComments();
-      });
+      })
+      .catch((err) => console.error(err));
   };
 
   handleVideoLike = () => {
     console.log("clicked");
     const { id } = this.state.activeVideo;
-    axios.put(`${process.env.REACT_APP_SERVER}/videos/${id}/like`).then(() => {
-      this.updateComments();
-    });
+    axios
+      .put(`${process.env.REACT_APP_SERVER}/videos/${id}/like`)
+      .then(() => {
+        this.updateComments();
+      })
+      .catch((err) => console.error(err));
   };
 
   getInitialVideo() {
@@ -116,7 +120,7 @@ class Home extends Component {
               updateComments={this.updateComments}
               activeVideo={this.state.activeVideo}
               handleDelete={this.handleDelete}
-              handleLike={this.handleLike}
+              handleCommentLike={this.handleCommentLike}
             />
           </div>
           <div className='content-recommendation-container'>

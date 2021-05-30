@@ -2,8 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function CommentCard(props) {
-  const { name, timestamp, comment, handleDelete, id, likes, handleLike } =
-    props;
+  const {
+    name,
+    timestamp,
+    comment,
+    handleDelete,
+    id,
+    likes,
+    handleCommentLike,
+  } = props;
 
   return (
     <div className='comment-card__info-container'>
@@ -24,7 +31,7 @@ function CommentCard(props) {
           />
           <FontAwesomeIcon
             onClick={() => {
-              handleLike(id);
+              handleCommentLike(id);
             }}
             className='comment-card__icon comment-card__icon--heart'
             icon={faHeart}

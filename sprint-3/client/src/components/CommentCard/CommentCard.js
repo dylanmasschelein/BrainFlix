@@ -29,7 +29,7 @@ function CommentCard(props) {
             className='comment-card__icon comment-card__icon--heart'
             icon={faHeart}
           />
-          <span className='comment-card__likes'>{likes}</span>
+          <span className='comment-card__likes'>{likes ? likes : "0"}</span>
         </div>
       </div>
       <p className='comment-card__description'>{comment}</p>

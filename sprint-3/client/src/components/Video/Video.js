@@ -18,7 +18,12 @@ function Video(props) {
             {views}
           </span>
           <span className='video__info video__info--style'>
-            <img src={likesIcon} alt='likes icon' className='video__icon' />
+            <img
+              src={likesIcon}
+              onClick={props.handleVideoLike}
+              alt='icon'
+              className='video__icon'
+            />
             {likes}
           </span>
         </div>

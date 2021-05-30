@@ -5,6 +5,7 @@ import { formatDate } from "../Utilities/DateUtility";
 function VideoInfo(props) {
   const { id, title, channel, timestamp, views, likes, description } =
     props.activeVideo;
+
   return (
     <section className='video'>
       <Video
@@ -15,6 +16,7 @@ function VideoInfo(props) {
         views={views}
         likes={likes}
         description={description}
+        handleVideoLike={props.handleVideoLike}
       />
     </section>
   );

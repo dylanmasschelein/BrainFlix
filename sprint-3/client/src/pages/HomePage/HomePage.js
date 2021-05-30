@@ -40,6 +40,14 @@ class Home extends Component {
     });
   };
 
+  handleVideoLike = () => {
+    console.log("clicked");
+    const { id } = this.state.activeVideo;
+    axios.put(`${SERVER}/videos/${id}/like`).then(() => {
+      this.updateComments();
+    });
+  };
+
   getInitialVideo() {
     const { videoId } = this.props.match.params;
     // Conditionally render initial video based on page refresh or home click
@@ -88,7 +96,10 @@ class Home extends Component {
         <HeroVideo activeVideo={this.state.activeVideo} />
         <main>
           <div className='content-container'>
-            <VideoInfo activeVideo={this.state.activeVideo} />
+            <VideoInfo
+              activeVideo={this.state.activeVideo}
+              handleVideoLike={this.handleVideoLike}
+            />
             <CommentSection
               updateComments={this.updateComments}
               activeVideo={this.state.activeVideo}

@@ -4,32 +4,17 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
 function loadVideos() {
-  return fs.readFileSync("./data/videos.json", "utf-8");
+  return JSON.parse(fs.readFileSync("./data/videos.json", "utf-8"));
 }
 
-// function loadComments(videoId) {
-//   const videoData = fs.readFileSync("./data/videos.json", "utf-8");
-//   const videoDataParsed = JSON.parse(videoData);
-//   const currentVideo = videoDataParsed.filter((video) => {
-//     console.log("video id:", video.id, "videoId:", videoId);
-//     return video.id === videoId;
-//   });
-//   return currentVideo[0].comments;
-// }
-
-function addComment(newComments) {
-  fs.writeFileSync("./data/videos.json", JSON.stringify(newComments));
+function modifyComments(arr) {
+  return fs.writeFileSync("./data/videos.json", JSON.stringify(arr));
 }
 
 router.post("/:videoId/comments", (req, res) => {
   const { videoId } = req.params;
   const { comment } = req.body;
-  // load all video data and seperate out comments of the specific video
-  const videoData = JSON.parse(loadVideos());
-  let filteredVideo = videoData.filter((video) => video.id === videoId);
-  const videoComments = filteredVideo[0].comments;
-  const videoList = videoData.filter((video) => video.id !== videoId);
-  //   console.log(videoComments);
+  const videoData = loadVideos();
 
   if (!comment) {
     return res.status(400).json({
@@ -41,43 +26,48 @@ router.post("/:videoId/comments", (req, res) => {
     id: uuidv4(),
     name: "Goofy Gabe",
     comment,
-    date: Date.now(),
+    timestamp: Date.now(),
   };
 
-  videoComments.push(newComment);
-  filteredVideo[0].comments = videoComments;
-  videoList.push(filteredVideo);
-  //   console.log(videoList);
+  videoData.find((video) => {
+    if (video.id === videoId) {
+      return video.comments.push(newComment);
+    }
+  });
 
-  // Make a clone of the object
-  // extract the comments array
-  // Add the comment to the specific comment array
-  // push that obj back to the array
-  // push the manipulated obj back to the complete data set
-
-  return res.json(addComment(videoList));
+  return res.json(modifyComments(videoData));
 });
 
 router.delete("/:videoId/comments/:commentId", (req, res) => {
   const { videoId, commentId } = req.params;
+  const videoData = loadVideos();
 
-  const videoData = JSON.parse(loadVideos());
-  let filteredVideo = videoData.filter((video) => video.id === videoId);
-  console.log(filteredVideo);
-  const videoComments = filteredVideo[0].comments;
-  const videoList = videoData.filter((video) => video.id !== videoId);
+  videoData.find((video) => {
+    if (video.id === videoId) {
+      const deleteIndex = video.comments.findIndex(
+        (comment) => comment.id === commentId
+      );
+      video.comments.splice(deleteIndex, 1);
+    }
+  });
 
-  //   console.log(videoData);
-  //   const filteredVideo = videoData.filter((video) => video.id === videoId);
-  //   let videoComments = filteredVideo.comments;
-  //   const filteredComments = videoComments.filter(
-  //     (comment) => comment.id !== commentId
-  //   );
-  //   const videoList = videoData.filter((video) => video.id !== videoId);
+  return res.json(modifyComments(videoData));
+});
 
-  videoComments = filteredComments;
+router.put("/:videoId/comments/:commentId/like", (req, res) => {
+  const { videoId, commentId } = req.params;
+  const videoData = loadVideos();
 
-  return res.json(addComment(videoComments));
+  videoData.find((video) => {
+    if (video.id === videoId) {
+      video.comments.findIndex((comment) => {
+        if (comment.id === commentId) {
+          comment.likes += 1;
+        }
+      });
+    }
+  });
+  return res.json(modifyComments(videoData));
 });
 
 module.exports = router;

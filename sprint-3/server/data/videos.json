@@ -111,7 +111,7 @@
     "image": "https://i.imgur.com/MMDMgD7.jpg",
     "description": "Concerned about your health while travelling? You should know that international travellers should always be extra concerned about their health and safety. This video provides essential information on travel health risks and preventive measures to keep you and your loved ones safe during your travels.",
     "views": "739,945",
-    "likes": "98,352",
+    "likes": "98,358",
     "duration": "8:34",
     "video": "https://project-2-api.herokuapp.com/stream",
     "timestamp": 1536070744000,
@@ -120,14 +120,14 @@
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1545162149000
       },
       {
         "name": "Gary Wong",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1544595784046
       },
       {
@@ -155,14 +155,14 @@
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1545162149000
       },
       {
         "name": "Gary Wong",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1544595784046
       },
       {
@@ -181,7 +181,7 @@
     "image": "https://i.imgur.com/7rD6Mf6.jpg",
     "description": "Your loved one has been dreaming about a romantic getaway with you, if you want to bring the spark back into your relationship this is the place to go! Small and design-forward, boutique hotels promise a more intimate vacation stay, each one chock-full of character while offering plenty of inimitable features (from exposed brick to panoramic ocean views)",
     "views": "345,987",
-    "likes": "76,588",
+    "likes": "76,590",
     "duration": "12:26",
     "video": "https://project-2-api.herokuapp.com/stream",
     "timestamp": 1545377524000,
@@ -190,22 +190,36 @@
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
+        "likes": 6,
         "timestamp": 1545162149000
       },
       {
         "name": "Gary Wong",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1544595784046
       },
       {
         "name": "Theodore Duncan",
         "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
-        "likes": 0,
+        "likes": 1,
         "timestamp": 1542262984046
+      },
+      {
+        "id": "27ba68e2-3284-4bf0-89bb-a54d5a49bce5",
+        "name": "Goofy Gabe",
+        "comment": "qwedqwdq",
+        "timestamp": 1622341435311,
+        "likes": 6
+      },
+      {
+        "id": "ff9eeb9c-62b1-4dfd-8566-98f8864e84e2",
+        "name": "Goofy Gabe",
+        "comment": "dqwd",
+        "timestamp": 1622341439620,
+        "likes": 5
       }
     ]
   },
@@ -216,18 +230,11 @@
     "image": "https://i.imgur.com/0hi3N4B.jpg",
     "description": "Worried about finding the perfect travel accommodations? There are many things to consider when booking an accommodation. Consider picking the right location. Location is an important consideration for an enjoyable stay. Check the rating and price. Consider apartment or condo rentals. Weigh the food options. Is it family-friendly? Watch for extra fees. Assess the on-site amenities.",
     "views": "252,796",
-    "likes": "4,905",
+    "likes": "4,941",
     "duration": "7:31",
     "video": "https://project-2-api.herokuapp.com/stream",
     "timestamp": 1520167535028,
     "comments": [
-      {
-        "name": "Micheal Lyons",
-        "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
-        "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
-        "timestamp": 1545162149000
-      },
       {
         "name": "Gary Wong",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
@@ -313,5 +320,67 @@
         "timestamp": 1542262984046
       }
     ]
+  },
+  {
+    "id": "3bb0c316-f4bd-407e-8ce4-55a5afcd2d85",
+    "title": "erfe",
+    "channel": "Mashy",
+    "image": "http://localhost:8080/static/default-thumbnail.jpg",
+    "description": "werfwef",
+    "views": "789,379,233",
+    "likes": "892,003",
+    "duration": "8:04",
+    "video": "https://project-2-api.herokuapp.com/stream",
+    "timestamp": 1622337659219,
+    "comments": [
+      {
+        "id": "4424ed3f-bc2a-45e6-a41c-ed7b280da4c8",
+        "name": "Goofy Gabe",
+        "comment": "New COmment!",
+        "timestamp": 1622337708487,
+        "likes": 1
+      },
+      {
+        "id": "bb6c543c-ee28-4eb9-bdd0-b344a86ce275",
+        "name": "Goofy Gabe",
+        "comment": "biking to da beach mon",
+        "timestamp": 1622337715399,
+        "likes": 26
+      }
+    ]
+  },
+  {
+    "id": "7b42a02b-04a2-4266-8bf5-f835d25a1858",
+    "title": "CANT BELIEVE IM DONE",
+    "channel": "Mashy",
+    "image": "http://localhost:8080/static/default-thumbnail.jpg",
+    "description": "YESSSSSSS",
+    "views": "789,379,233",
+    "likes": "892,003",
+    "duration": "8:04",
+    "video": "https://project-2-api.herokuapp.com/stream",
+    "timestamp": 1622339893801,
+    "comments": [
+      {
+        "id": "5632c9bb-dbed-48ab-be43-30b16aa0ee30",
+        "name": "Goofy Gabe",
+        "comment": "qwdqwd",
+        "timestamp": 1622341484057,
+        "likes": 16
+      }
+    ]
+  },
+  {
+    "id": "e2cd1794-0235-42b3-8056-a31dd7784dcf",
+    "title": "Last New Video Check",
+    "channel": "Mashy",
+    "image": "http://localhost:8080/static/default-thumbnail.jpg",
+    "description": "happy days!",
+    "views": "789,379,233",
+    "likes": "892,003",
+    "duration": "8:04",
+    "video": "https://project-2-api.herokuapp.com/stream",
+    "timestamp": 1622507232701,
+    "comments": []
   }
 ]
